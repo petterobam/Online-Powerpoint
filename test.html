@@ -1,0 +1,108 @@
+<!DOCTYPE HTML> 
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+        <title>ColorPicker颜色选择器演示程序</title>
+        <style>
+            body,blockquote {margin:0;padding:0;font-size:12px;font-family:"微软雅黑",Verdana,Arial}
+            #container {width:900px;margin:0 auto;}
+            #image {margin-bottom:10px;}
+            blockquote {margin:10px 0;padding:0;}
+            .act1 {width:50px;}
+          pre {margin:0;padding:0;border:1px solid #ccc;margin-top:10px;padding-left:5px;}
+        </style>
+    </head>
+    <body>
+        <div id="container">
+        <script type="text/javascript" src="lib/js/jquery.js"></script> 
+<script type="text/javascript" src="js/jquery.colorpicker.js"></script>
+    <h2>ColorPicker颜色选择器演示 <a href="http://blog.iplaybus.com/colorpicker.html">下载该插件</a> | <a href="http://blog.iplaybus.com/colorpicker.html">错误报告</a></h2>
+    <blockquote>
+        <font color="blue">默认：</font><br />
+        请输入颜色值：<input type="text" id="cp1" />
+        <pre>
+$("#cp1").colorpicker({
+    fillcolor:true
+});</pre>
+    </blockquote>
+    <blockquote>
+        <font color="blue">文字着色：</font><br />
+        请输入颜色值：<input type="text" id="cp2" />
+        <pre>
+$("#cp2").colorpicker({
+    fillcolor:true,
+    success:function(o,color){
+        $(o).css("color",color);
+    }
+});</pre>
+    </blockquote>
+    <blockquote>
+        <font color="blue">外部点击触发：</font><br />
+        请输入颜色值：<input type="text" id="cp3text" value="这里是测试的文字"/><img src="images/others/colorpicker.png" id="cp3" style="cursor:pointer"/>
+        <pre>
+$("#cp3").colorpicker({
+    fillcolor:true,
+    success:function(o,color){
+        $("#cp3text").css("color",color);
+    }
+});</pre>
+    </blockquote>
+    <blockquote>
+        <font color="blue">外部鼠标Mouseover触发：</font><br />
+        请输入颜色值：<input type="text" id="cp4text" value="这里是测试的文字"/><img src="images/others/colorpicker.png" id="cp4" style="cursor:pointer"/>
+        <pre>
+$("#cp4").colorpicker({
+    fillcolor:true,
+    event:'mouseover',
+    success:function(o,color){
+        $("#cp4text").css("color",color);
+    }
+});</pre>
+    </blockquote>
+    <blockquote>
+        <font color="blue">填充其它对象：</font><br />
+        请输入颜色值：<input type="text" id="cp5text" value=""/><img src="images/others/colorpicker.png" id="cp5" style="cursor:pointer"/>
+        <pre>
+$("#cp5").colorpicker({
+    fillcolor:true,
+    event:'mouseover',
+    target:$("#cp5text")
+});</pre>
+    </blockquote>
+</div>
+<script type="text/javascript">
+    $(function(){
+        $("#cp1").colorpicker({
+            fillcolor:true
+        });
+        $("#cp2").colorpicker({
+            fillcolor:true,
+            success:function(o,color){
+                $(o).css("color",color);
+            }
+        });
+        $("#cp3").colorpicker({
+            fillcolor:true,
+            success:function(o,color){
+                $("#cp3text").css("color",color);
+            }
+        });
+        $("#cp4").colorpicker({
+            fillcolor:true,
+            event:'mouseover',
+            success:function(o,color){
+                $("#cp4text").css("color",color);
+            }
+        });
+        $("#cp5").colorpicker({
+            fillcolor:true,
+            event:'mouseover',
+            target:$("#cp5text")
+        });
+    });
+</script>
+            </div>
+<span style="display:none;"><script src="http://s84.cnzz.com/stat.php?id=3501297&web_id=3501297" language="JavaScript" charset="utf-8"></script></span>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,8 @@
+[data-design="party"] {
+    background-color: black;
+}
+[data-design="party"] .slide {
+    background-image: url('css/design/images/party.png');
+    background-color: #DD131B;
+    color: white;
+}

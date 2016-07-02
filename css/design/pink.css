@@ -1,0 +1,7 @@
+﻿[data-design="pink"] {
+    background-color: rgba(230, 175, 138, 0.1);
+}
+[data-design="pink"] .slide {
+    background-color:#fb9fec ;
+    color: #007653;
+}

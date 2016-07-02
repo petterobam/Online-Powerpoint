@@ -1,0 +1,416 @@
+<div id="editor" class="window">
+  <div id="topbar" class="navbar margin-bottom-0">
+    <div class="navbar-inner">
+      <a class="brand" href="#">HTML5幻灯片系统</a>
+      <ul class="nav" id="title-label-wrapper" data-bind="visible: !editingTitle()">
+          <li>
+          <a href="#" id="label-title" data-bind="text: titleDisplay, click: editTitle"></a>
+          </li>
+      </ul>
+      <form class="navbar-form pull-left" id="title-editor-wrapper" data-bind="visible: editingTitle" onsubmit="return false;">
+          <input type="text" class="span2" id="input-title" placeholder="请输入PPT标题..." data-bind="value: title, hasfocus: editingTitle">
+      </form>
+
+      <ul class="nav pull-right">
+        <li><a href="#" id="clear-slides-data">Q-清除缓存</a></li>
+        <li><a href="#theme-manager" data-toggle="modal">K-主题动作</a></li>
+        <li>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <i class="icon-play"></i>P-预览 <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu pull-right">
+            <li><a href="#" id="preview-btn">从第一页开始</a></li>
+            <li><a href="#" id="preview-current-btn">从当前页开始</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="toolbar" class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+          <div class="btn-group">
+              <a class="btn" data-role="undo" href="#">撤</i></a>
+              <a class="btn" data-role="redo" href="#">重</a>
+          </div>
+          <div class="btn-group">
+              <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                  字体
+                  <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                  <li><a href="#" data-role="FontName"><font face = "Arial">Arial</font></a></li>
+                  <li><a href="#" data-role="FontName"><font face = "Verdana">Verdana</font></a></li>
+                  <li><a href="#" data-role="FontName"><font face = "Tahoma">Tahoma</font></a></a></li>
+                  <li><a href="#" data-role="FontName"><font face = "宋体">宋体</font></a></a></li>
+              </ul>
+          </div>
+          <div class="btn-group">
+              <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                  大小
+                  <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                  <li><a href="#" data-role="FontSize" style="line-height: 1.2;"><font size ="1" >1</font></a></li>
+                  <li><a href="#" data-role="FontSize" style="line-height: 1.2;"><font size ="2" >2</font></a></li>
+                  <li><a href="#" data-role="FontSize" style="line-height: 1.2;"><font size ="3" >3</font></a></li>
+                  <li><a href="#" data-role="FontSize" style="line-height: 1.2;"><font size ="4" >4</font></a></li>
+                  <li><a href="#" data-role="FontSize" style="line-height: 1.2;"><font size ="5" >5</font></a></li>
+                  <li><a href="#" data-role="FontSize" style="line-height: 1.2;"><font size ="6" >6</font></a></li>
+                  <li><a href="#" data-role="FontSize" style="line-height: 1.2;"><font size ="7" >7</font></a></li>
+              </ul>
+          </div>
+          <div class="btn-group">
+              <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                  颜色
+                  <span class="caret"></span>
+              </a>
+              <div class="dropdown-menu" id="mycolorPicker">
+                  <a href="#" data-role="ForeColor" data-color="Red" style="background-color: Red;"></a>
+                  <a href="#" data-role="ForeColor" data-color="Blue" style="background-color: Blue;"></a>
+                  <a href="#" data-role="ForeColor" data-color="Green" style="background-color: Green;"></a>
+                  <a href="#" data-role="ForeColor" data-color="Yellow" style="background-color: Yellow;"></a>
+                  <a href="#" data-role="ForeColor" data-color="Black" style="background-color: Black;"></a>
+                  <a href="#" data-role="ForeColor" data-color="Gray" style="background-color: Gray;"></a>
+                  <a href="#" data-role="ForeColor" data-color="White" style="background-color: White;"></a>
+                  <img id="moreColors" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAAUElEQVQokdXMIRWAUBREwfEUIARxyEIGAiD4CYhBARohFoN4WNzfc0bedZEK7m1IBSQfHYW/l/1M9X6nApd8dBT+3jqPqWCZjlTQWkvVUfgApyFYUBOq5B0AAAAASUVORK5CYII=">
+              </div>
+          </div>
+          <div class="btn-group" data-toggle="buttons-checkbox">
+              <a class="btn" data-role='bold' href="#"><b>B</b></a>
+              <a class="btn" data-role='italic' href="#"><i>I</i></a>
+              <a class='btn' data-role='underline' href="#"><u><b>U</b></u></a>
+              <a class='btn' data-role='strikeThrough' href="#"><strike>abc</strike></a>
+          </div>
+          <div class="btn-group" data-toggle="buttons-radio">
+              <a class="btn" data-role="justifyLeft" href="#">左</a>
+              <a class="btn" data-role="justifyCenter" href="#">中</a>
+              <a class="btn" data-role="justifyRight" href="#">右</a>
+              <a class="btn" data-role="justifyFull" href="#">全</a>
+          </div>
+          <div class="btn-group" data-toggle="buttons-radio">
+              <a class="btn" data-role="indent" href="#">缩</a>
+              <a class="btn" data-role="outdent" href="#">进</a>
+          </div>
+          <div class="btn-group" data-toggle="buttons-radio">
+              <a class="btn" data-role="insertUnorderedList" href="#">无序列</a>
+              <a class="btn" data-role="insertOrderedList" href="#">有序列</a>
+          </div>
+          <div class="btn-group">
+              <a class="btn" data-role="CreateLink" href="#">
+                  Link
+              </a>
+          </div>
+          <div class="show-layout-toggle pull-right">
+              <a onclick="mylayoutbarToggle()">展开布局模板<b class="caret"></b></a>
+          </div>
+      </div>
+  </div>
+
+  <div id="mylayoutbar" class="navbar navbar-fixed-top hide">
+    <ul id="layout-list" class="thumbnails" data-bind="foreach: layoutList">
+      <li class="span1" data-bind="css: {active: key == $root.currentLayout()}">
+        <a href="#" class="thumbnail" data-bind="click: $parent.clickLayout, attr: {title: title}">
+          <img data-bind="attr: {name: 'images-layout-' + key}" />
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div id="content">
+    <div id="sidebar" class="span3 margin-left-0 width-240">
+      <div id="page-nav">
+        <div id="page-list-wrapper">
+          <ul id="page-list" class="nav nav-tabs nav-stacked" data-bind="foreach: pageList">
+            <li data-bind="css: {active: $index() == $root.currentPage()}, click: $parent.clickPage">
+              <div> 
+                <img data-bind="attr: {name: 'images-layout-' + key}" />
+              </div>
+              <a href="#" data-bind="text: ($index()+1) + '、' + (title || '新页面')"></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="vr"></div>
+    <div id="editor-stage" class="stage" data-bind="attr: {'data-design': currentDesign}">
+      <div id="editor-slide" class="slide" data-bind="attr: {'data-layout': currentLayout}">
+        <div id="slide-title" data-key="title">
+          <div class="output" data-bind="click: clickItem"></div>
+        </div>
+        <div id="slide-subtitle" data-key="subtitle">
+          <div class="output" data-bind="click: clickItem"></div>
+        </div>
+        <div id="slide-content" data-key="content">
+          <div class="output" data-bind="click: clickItem"></div>
+        </div>
+        <div id="slide-subtitle2" data-key="subtitle2">
+          <div class="output" data-bind="click: clickItem"></div>
+        </div>
+        <div id="slide-content2" data-key="content2">
+          <div class="output" data-bind="click: clickItem"></div>
+        </div>
+        <div id="item-editor-layer" class="layer"></div>
+      </div>
+    </div>
+    <ul class="dropdown-menu" id="myEditorMenu">
+      <li><a href = "#" id="myEditorMenuAdd">插入新页面</a></li>
+      <li><a href = "#" id="myEditorMenuLayout">选择布局模板</a></li>
+      <li><a class = "hide" data-bind="click: moveUpPage" href = "#" id="myPageMoveUp">上移页面</a></li>
+      <li><a class = "hide" data-bind="click: moveDownPage" href = "#" id="myPageMoveDown">下移页面</a></li>
+      <li><a class = "hide"  data-bind="click: removePage" href = "#" id="myPageRemove">删除页面</a></li>
+    </ul>
+  </div>
+</div>
+
+<div id="player" class="window">
+  <div id="player-stage" class="stage">
+    <div id="player-slides-container">
+      <div class="slide next prev current">
+        <div data-key=""></div>
+      </div>
+    </div>
+  </div>
+  <div id="player-status">
+    <span id="player-page">1</span> / <span id="player-sum">1</span>
+  </div>
+  <div id="player-nav">
+    <div id="player-menu" class="btn-group">
+      <a href="#" id="player-btn-prev" class="btn">前一页</a>
+      <a href="#" id="player-btn-next" class="btn">下一页</a>
+      <a href="#" id="player-btn-goto" class="btn">跳转</a>
+      <a href="#" id="player-btn-exit" class="btn">退出</a>
+    </div>
+  </div>
+  <ul class="dropdown-menu" id="myPlayerMenu">
+    <li><a href="#" id="myPlayerMenuPrev">前一页</a></li>
+    <li><a href="#" id="myPlayerMenuNext">下一页</a></li>
+    <li><a href="#" id="myPlayerMenuGoto">跳转</a></li>
+    <li><a href="#" id="myPlayerMenu-player-nav-toggle">隐藏操作条</a></li>
+    <li><a href="#" id="myPlayerMenuExit">退出</a></li>
+  </ul>
+</div>
+
+<div id="modals" class="layer">
+  <div id="template-dialog" class="modal hide fade">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">×</button>
+      <h3>给页面添加一个模板</h3>
+    </div>
+    <div class="modal-body">
+      <div id="template-panel" class="span6">
+        <p>请从中选择模板创建一个新页面:</p>
+        <ul id="template-list" class="thumbnails" data-bind="foreach: tplList">
+          <li class="span2">
+            <a href="#" class="thumbnail" data-bind="click: $parent.addPage, attr: {title: title}" data-dismiss="modal">
+              <img data-bind="attr: {name: 'images-layout-' + key}" />
+              <span class="title" data-bind="text: title"></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary" data-dismiss="modal">关闭</button>
+    </div>
+  </div>
+
+  <div id="theme-manager" class="modal hide fade">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">×</button>
+      <h3>主题管理</h3>
+    </div>
+    <div class="modal-body">
+      <div class="span6">
+        <ul id="theme-manager-tabs" class="nav nav-tabs">
+          <li class="active"><a href="#design-panel" data-toggle="tab">设计</a></li>
+          <li><a href="#transition-panel" data-toggle="tab">切换动作</a></li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="design-panel">
+            <ul class="thumbnails" id="design-list" data-bind="foreach: designList">
+              <li class="span2" data-bind="css: {active: key == $root.currentDesign()}">
+                <a href="#" class="thumbnail" data-bind="click: $parent.clickDesign">
+                  <img data-bind="attr: {name: 'images-design-' + key}">
+                  <span class="title" data-bind="text: title"></span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="tab-pane" id="transition-panel">
+            <div class="clearfix">
+              <ul id="transition-list" class="nav nav-pills nav-stacked pull-left" data-bind="foreach: transitionList">
+                <li data-bind="css: {active: key == $root.currentTransition()}">
+                  <a href="#" data-bind="click: $parent.clickTransition, text: title"></a>
+                </li>
+              </ul>
+              <div id="transition-preview" class="pull-right">
+                <div id="transition-stage" data-bind="attr: {'data-transition': currentTransition}">
+                  <div class="transition-slide">1</div>
+                  <div class="transition-slide">2</div>
+                  <div class="transition-slide">3</div>
+                  <div class="transition-slide">4</div>
+                  <div class="transition-slide">5</div>
+                  <div class="transition-slide">6</div>
+                  <div class="transition-slide">7</div>
+                  <div class="transition-slide">8</div>
+                  <div class="transition-slide">9</div>
+                  <div class="transition-slide">0</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary" data-dismiss="modal">确定</button>
+      <button class="btn" data-dismiss="modal">关闭</button>
+    </div>
+  </div>
+
+  <div id="img-manager" class="modal hide fade">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">×</button>
+      <h3>图片添加</h3>
+    </div>
+    <div class="modal-body">
+      <div class="span6">
+        <ul id="img-manager-tabs" class="nav nav-tabs">
+          <li class="active" data-key="list"><a href="#my-img-panel" data-toggle="tab">我的图片</a></li>
+          <li data-key="local"><a href="#img-local-panel" data-toggle="tab">本地</a></li>
+          <li data-key="url"><a href="#img-url-panel" data-toggle="tab">在线</a></li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="my-img-panel">
+            <ul class="thumbnails" id="my-img-list">
+              <li class="span2">
+                <a href="#" class="thumbnail"><img></a>
+                <p class="clearfix">
+                  <button class="btn pull-left" data-action="choose">选择</button>
+                  <button class="btn btn-danger pull-right" data-action="remove"><i class="icon-trash"></i></button>
+                </p>
+              </li>
+            </ul>
+            <div id="my-img-list-holder">
+              <h4>没有收藏的图片</h4>
+              <p>你可以<a href="#" data-key="local">上传</a>
+                或者输入<a href="#" data-key="url">在线图片URL</a> 来添加图片.</p>
+            </div>
+          </div>
+          <div class="tab-pane" id="img-local-panel">
+            <p><input type="file"></p>
+            <div class="thumbnail"></div>
+          </div>
+          <div class="tab-pane" id="img-url-panel">
+            <p class="form-inline"><input type="text" placeholder="在这里输入图片地址.">
+              <button class="btn btn-danger" id="img-url-remove"><i class="icon-trash"></i></button></p>
+            <div class="thumbnail"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary" data-dismiss="modal" data-action="save">确定</button>
+      <button class="btn" data-dismiss="modal">取消</button>
+    </div>
+  </div>
+
+  <div id="video-dialog" class="modal hide fade">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">×</button>
+      <h3>视频编辑器</h3>
+    </div>
+    <div class="modal-body">
+      <div class="span6">
+        <h4>优酷视频URL:</h4>
+        <input id="video-url" type="text"><br>
+        <span class="label">比如:</span> http://v.youku.com/v_show/id_xxxxxxxxxx.html<br><br>
+        <div class="alert alert-info">
+          你可以访问 <a href="http://www.youku.com/" target="_blank">http://www.youku.com/</a>寻找视频，并将URL粘贴到这里.<br>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary" data-dismiss="modal" data-action="save">确定</button>
+      <button class="btn" data-dismiss="modal">取消</button>
+    </div>
+  </div>
+
+  <div id="code-dialog" class="modal hide fade">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">×</button>
+      <h3>代码编写器</h3>
+    </div>
+    <div class="modal-body">
+      <div class="span6">
+        <ul id="code-manager-tabs" class="nav nav-tabs">
+          <li class="active"><a href="#code-panel" data-toggle="tab" data-key="code">输入代码串</a></li>
+          <li><a href="#demo-panel" data-toggle="tab" data-key="demo">代码模板</a></li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="code-panel">
+            <textarea id="code-input" class="code" rows="8" style="width: 100%; box-sizing: border-box;"></textarea>
+          </div>
+          <div class="tab-pane" id="demo-panel">
+            <p class="form-inline"><input type="text" id="demo-url-input" placeholder="输入代码模板URL.">
+              <button class="btn btn-danger" id="demo-url-remove"><i class="icon-trash"></i></button></p>
+            <p>你可以从这些网站寻址模板URL:</p>
+            <ul>
+              <li><a href="http://jsfiddle.net/" target="_blank">jsFiddle</a></li>
+              <li><a href="http://codepen.io/" target="_blank">CodePen</a></li>
+              <li><a href="http://jsbin.com/" target="_blank">JSBin</a></li>
+              <li><a href="http://dabblet.com/" target="_blank">Dabblet</a></li>
+              <li>或者其他你想展示的模板URL</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary" data-dismiss="modal" data-action="save">确认</button>
+      <button class="btn" data-dismiss="modal">取消</button>
+    </div>
+  </div>
+
+  <div id="goto-dialog" class="modal hide fade">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">×</button>
+      <h3>跳转到 ...</h3>
+    </div>
+    <div class="modal-body">
+      <div class="span6">
+        页码:
+        <input id="goto-number" type="number">
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary" data-dismiss="modal" data-action="go">确认</button>
+      <button class="btn" data-dismiss="modal">取消</button>
+    </div>
+  </div>
+
+  <div id="confirm-dialog" class="modal hide fade">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">×</button>
+      <h3 id="confirm-dialog-title"></h3>
+    </div>
+    <div class="modal-body" id="confirm-dialog-body"></div>
+    <div class="modal-footer">
+      <button class="btn" data-dismiss="modal" data-action="no">取消</button>
+      <button class="btn btn-primary" data-dismiss="modal" data-action="yes">确认</button>
+    </div>
+  </div>
+</div>
+
+<script id="ctrl-template" type="text/template">
+<div class="ctrl">
+    <a href="#" class="ctrl-start"></a>
+    <ul class="ctrl-menu">
+        <li><a href="#" data-action="clear">清除</a></li>
+        <li><a href="#" data-action="edit">编辑</a></li>
+        <li class="ctrl-menu-more"><a href="#">...</a></li>
+    </ul>
+</div>
+</script>
+

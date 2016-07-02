@@ -1,0 +1,8 @@
+[data-design="multi-random"] {
+    background-color: silver;
+}
+[data-design="multi-random"] .slide {
+    background-image: url('css/design/images/multi-random/0.png');
+    background-color: #597254;
+    color: white;
+}

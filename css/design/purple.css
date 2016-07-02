@@ -1,0 +1,7 @@
+﻿[data-design="purple"] {
+    background-color: rgba(152, 69, 196, 0.10);
+}
+[data-design="purple"] .slide {
+    background-color: #d4a6ef;
+    color: #bb5945;
+}

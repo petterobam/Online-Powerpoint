@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users>
+	<user id="petter">
+		<slide id = "1">
+			<title>测试1.ppt</title>
+			<content>{"design":"default","transition":"cubic-vertical-inner","title":"测试111","slides":[{"sid":"A","layout":"double-subtitle","items":{"title":{"type":"text","value":"封面"},"content":{"type":"text","value":"介绍写这里"},"content2":{"type":"img","value":null,"config":{}}}},{"sid":"B","layout":"normal","items":{"title":{"type":"text","value":"正文"},"content":{"type":"text","value":"正文内容."}}},{"sid":"C","layout":"double","items":{"title":{"type":"text","value":"结束语","config":{}},"content":{"type":"img","value":""}}}]}</content>
+			<time></time>
+		</slide>
+		<slide id = "2">
+			<title>测试2.ppt</title>
+			<content>{"design":"default","transition":"cubic-vertical-inner","title":"测试2222","slides":[{"sid":"A","layout":"double-subtitle","items":{"title":{"type":"text","value":"封面"},"content":{"type":"text","value":"介绍写这里"},"content2":{"type":"img","value":null,"config":{}}}},{"sid":"B","layout":"normal","items":{"title":{"type":"text","value":"正文"},"content":{"type":"text","value":"正文内容."}}},{"sid":"C","layout":"double","items":{"title":{"type":"text","value":"结束语","config":{}},"content":{"type":"img","value":""}}}]}</content>
+			<time></time>
+		</slide>
+		<slide id = "3">
+			<title>测试3.ppt</title>
+			<content>{"design":"default","transition":"cubic-vertical-inner","title":"测试333","slides":[{"sid":"A","layout":"double-subtitle","items":{"title":{"type":"text","value":"封面"},"content":{"type":"text","value":"介绍写这里"},"content2":{"type":"img","value":null,"config":{}}}},{"sid":"B","layout":"normal","items":{"title":{"type":"text","value":"正文"},"content":{"type":"text","value":"正文内容."}}},{"sid":"C","layout":"double","items":{"title":{"type":"text","value":"结束语","config":{}},"content":{"type":"img","value":""}}}]}</content>
+			<time></time>
+		</slide>
+	</user>
+</users>

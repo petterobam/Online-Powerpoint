@@ -1,0 +1,7 @@
+﻿[data-design="lightblue"] {
+    background-color: rgba(32, 230, 230, 0.1);
+}
+[data-design="lightblue"] .slide {
+    background-color: #b4eff5;
+    color: #d4609d;
+}

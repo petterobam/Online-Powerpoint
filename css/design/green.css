@@ -1,0 +1,7 @@
+﻿[data-design="green"] {
+    background-color: rgba(103, 230, 116, 0.1);
+}
+[data-design="green"] .slide {
+    background-color: #90f5a1;
+    color: #e10755;
+}

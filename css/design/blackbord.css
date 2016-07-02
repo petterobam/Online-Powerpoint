@@ -1,0 +1,8 @@
+[data-design="blackbord"] {
+    background-color: silver;
+}
+[data-design="blackbord"] .slide {
+    background-image: url('css/design/images/blackbord.png');
+    background-color: #597254;
+    color: white;
+}

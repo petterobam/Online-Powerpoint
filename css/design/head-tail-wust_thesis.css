@@ -1,0 +1,8 @@
+[data-design="head-tail-wust_thesis"] {
+    background-color: silver;
+}
+[data-design="head-tail-wust_thesis"] .slide {
+    background-image: url('css/design/images/head-tail-wust_thesis/main.png');
+    background-color: #DEDEDE;
+    color: black;
+}
