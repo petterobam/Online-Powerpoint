@@ -140,9 +140,9 @@ PowerPoint曾使数不胜数的精彩演示文稿锦上添花，也曾让无穷�
 
 作者我在开发过程中优先满足用户最多的IE类浏览器和个人最爱的火狐浏览器，当然，Google Chrome如今也很流行，同时对应的Mac端的Safari的兼容，Google Chrome就作为测试的承担者了，最后Opera也会看看效果。
 
-<center>![](doc_imgs/2.1.png)
+![](doc_imgs/2.1.png)
 
-图2.1 浏览器-测试环境</center>
+<center>图2.1 浏览器-测试环境</center>
 
 1. Sublime Text
 Sublime Text 是一个代码编辑器，也是HTML和散文先进的文本编辑器。Sublime Text是由程序员Jon Skinner于2008年1月份所开发出来，它最初被设计为一个具有丰富扩展功能的Vim。[11]
@@ -203,13 +203,13 @@ Bootstrap[6]作为一款前端开发框架，其中包含了规范的css样式�
 ```
 ####<span id="2.2.2"></span> 2.2.2  KnockoutJS
 KnockoutJS遵循MVVM模式，即Model(M)—View(V)—ViewModel(VM)模式。
-<center>![](doc_imgs/2.2.png)
+![](doc_imgs/2.2.png)
 
-图2.2 MVVM模式实现原理图</center>
+<center>图2.2 MVVM模式实现原理图</center>
 
-<center>![](doc_imgs/2.3.png)
+![](doc_imgs/2.3.png)
 
-图2.3 MVC、MVP、MVVM模式的比较</center>
+<center>图2.3 MVC、MVP、MVVM模式的比较</center>
 
 MVVM模式是一个关注于前端开发的开发模式，在这种设计模式中：
 * Model来负责业务逻辑和数据封装。
@@ -239,9 +239,9 @@ RequireJS中主要有两个重要的方法：
 ###<span id="3.1"></span>3.1  功能分析
 基于HTML5的在线幻灯片系统通过分析PowerPoint功能界面得到的应用需求，主要实现以下功能：
 
-<center>![](doc_imgs/3.1.png)
+![](doc_imgs/3.1.png)
 
-图3.1 系统功能结构图</center>
+<center>图3.1 系统功能结构图</center>
 
 1. 创建幻灯片：
 默认模板创建、选择模板创建、复制当前创建。
@@ -294,49 +294,49 @@ RequireJS中主要有两个重要的方法：
 在参考PowerPoint软件界面和使用习惯，作者本人对系统的界面进行去杂存精，主要包含幻灯片编辑界面和幻灯片播放界面，用Axure RP Pro画出了一些界面的草图。
 1、幻灯片编辑界面
 1）主界面：主要分工具窗口栏、大纲列表和编辑区
-<center>![](doc_imgs/4.1.png)
+![](doc_imgs/4.1.png)
 
-4.1 幻灯片编辑页面全览草图</center>
+<center>4.1 幻灯片编辑页面全览草图</center>
 
 2）一些与PowerPoint相契合的动态界面效果：比如，即时改变当前页的布局模板、鼠标右键大纲页面和鼠标右键编辑区的菜单等等。
-<center>![](doc_imgs/4.2.png)
+![](doc_imgs/4.2.png)
 
-图4.2 布局模板动态切换草图</center>
+<center>图4.2 布局模板动态切换草图</center>
 
-<center>![](doc_imgs/4.3.png)
+![](doc_imgs/4.3.png)
 
-图4.3 鼠标右键大纲列和编辑区的菜单效果草图</center>
+<center>图4.3 鼠标右键大纲列和编辑区的菜单效果草图</center>
 
 3）动态弹出的模块层：例如，幻灯片主题设置、图片编辑框、视频编辑框、code编辑框（为代码块进行自动高亮的特殊文本框）、文件在线打开的列表项选择和本地打开的文件选择、导出保存的地址选择、删除重做的确认提示等等。
-<center>![](doc_imgs/4.4.png)
+![](doc_imgs/4.4.png)
 
-图4.4 主题管理-设计草图</center>
+<center>图4.4 主题管理-设计草图</center>
 
-<center>![](doc_imgs/4.5.png)
+![](doc_imgs/4.5.png)
 
-图4.5 主题管理-动作草图</center>
+<center>图4.5 主题管理-动作草图</center>
 
-<center>![](doc_imgs/4.6.png)
+![](doc_imgs/4.6.png)
 
-图4.6 图片编辑草图</center>
+<center>图4.6 图片编辑草图</center>
 
-<center>![](doc_imgs/4.7.png)
+![](doc_imgs/4.7.png)
 
-图4.7 代码编辑器草图</center>
+<center>图4.7 代码编辑器草图</center>
 
-<center>![](doc_imgs/4.8.png)
+![](doc_imgs/4.8.png)
 
-图4.8 在线文件列表草图</center>
+<center>图4.8 在线文件列表草图</center>
 
-<center>![](doc_imgs/4.9.png)
+![](doc_imgs/4.9.png)
 
-图4.9 导入本地文件选择草图</center>
+<center>图4.9 导入本地文件选择草图</center>
 
 2、幻灯片播放界面
 幻灯片播放界面要做到全屏效果，因此要做兼容性判断，全屏中定义了大量的鼠标和键盘事件，达到用户无障碍使用。其中定义的鼠标事件动态及界面如下：
-<center>![](doc_imgs/4.10.png)
+![](doc_imgs/4.10.png)
 
-图4.10 幻灯片播放界面草图</center>
+<center>图4.10 幻灯片播放界面草图</center>
 
 ####<span id="4.1.2"></span>4.1.2  系统功能结构
 基于HTML5的在线幻灯片系统致力于实现PowerPoint这样的软件的复杂Web应用，在系统功能设计之初，就要体现合理的分工、分层，原子化、独立化各功能代码块，使得需要组合在一起的功能块能够无障碍交互，不在需要关联的功能不会有接触。然而，在Javascript语法中，没有类的功能，代码块不能打包实现相互隔离，没有完整的面向对象机制，确实很难做出一个结构合理的功能设计方案。但是，凡事都有解决办法的，参照jQuery的代码封装思想和闭包传参优势，以及Knockout.js提供的变量动态监视功能和Require.js的动态加载脚本的作用，使得基于HTML5的在线幻灯片系统有了初步稳定的可扩展的设计结构。这些技术我在后面会进行详细的介绍，当然，也是因为它们，才使得我们的代码功能既能独立实现，又能在需要的时候相互引用，还能在全局范围内实现隐身，而不会产生冲突，是一个完全对外闭合、可移植的系统。
@@ -375,19 +375,19 @@ adjust.js文件：主要用于定义一些微调函数，或急需要添加的�
 这两个文件仅是用于调试时使用，调试结束后，会将其整合到对应的系统功能中。
 ###<span id="4.2"></span>4.2  系统组成模块
 为了将基于HTML5的在线幻灯片系统的编码条理化、明确化，本人按功能模块画出了各个模块之间的牵连，划分出正常项目的数据、功能、业务、视图等逻辑板块。
-<center>![](doc_imgs/4.11.png)
+![](doc_imgs/4.11.png)
 
-图4.11 基础数据部分</center>
+<center>图4.11 基础数据部分</center>
 
-<center>![](doc_imgs/4.12.png)
+![](doc_imgs/4.12.png)
 
-图4.12 重要基础工具-编辑框</center>
+<center>图4.12 重要基础工具-编辑框</center>
 
-<center>![](doc_imgs/4.13.png)
+![](doc_imgs/4.13.png)
 
-图4.13 幻灯片编辑模块关系</center>
+<center>图4.13 幻灯片编辑模块关系</center>
 
-<center>![](doc_imgs/4.14.png)
+![](doc_imgs/4.14.png)
 
 图4.14 离线模块（左半边）和播放模块（右半边）</center>
 
@@ -396,15 +396,15 @@ adjust.js文件：主要用于定义一些微调函数，或急需要添加的�
 根据前面【系统结构设计】，我们从各个与数据源相关的模块牵扯到的核心部分进行相应的数据格式、类型和存储类型的设计。
 ####<span id="4.3.1"></span>4.3.1  主题和动作数据
 1、主题是全局的效果，一个幻灯片一个主题，由于全局只有一个主题，因此只用一个字符串作为ID就可以标识了。而且主题要做成可扩展的，则每个全局主题效果的css，最好做成单个文件。必须显示手势密码图案，所以将设置手势密码图案和解锁手势密码图案分别设计了不同的视图。
-<center>![](doc_imgs/4.15.png)
+![](doc_imgs/4.15.png)
 
-图4.15 主题文件</center>
+<center>图4.15 主题文件</center>
 
 主题的css文件中一般默认有三种效果：
 全局背景样式、每张幻灯片背景样式、幻灯片中所有文字的默认颜色。
-<center>![](doc_imgs/4.16.png)
+![](doc_imgs/4.16.png)
 
-图4.16 默认主题的css样式</center>
+<center>图4.16 默认主题的css样式</center>
 
 上面是根据css属性选择器进行元素样式的设计，如果活用css选择器，可以做出更多的主题效果，如通过选择器设置第几张幻灯片的样式，甚至幻灯片中各个类型的编辑框的通用样式。
 2、动作在目前只支持所有幻灯片的统一切换动作的设置，在后续版本中加入时序计数器或切换状态判断，应该就可以给每个编辑框加动作了，其数据设计和主题一样，并支持扩展。
@@ -466,9 +466,9 @@ adjust.js文件：主要用于定义一些微调函数，或急需要添加的�
 ]
 ```
 这里解释一下内容组别，为了降低系统的难度，初级版本的系统，幻灯片上的编辑框不是随便随机可以添加的，而是限制好个数上限和布局的，根据布局调节好这些内容组别（title/subtitle/sutitle2/content/content2）的显示和隐藏、位置和大小，这就是为什么items里面的模块没有位置和大小信息的原因。如图3.4.2-3，幻灯片布局是“普通”、“两列正文”、“含两列正文和子标题”的“title”内容组的样式：
-<center>![](doc_imgs/4.17.png)
+![](doc_imgs/4.17.png)
 
-图4.17 各布局概览图</center>
+<center>图4.17 各布局概览图</center>
 
 表4.3 布局列表
 
@@ -484,22 +484,22 @@ adjust.js文件：主要用于定义一些微调函数，或急需要添加的�
 如果要实现编辑框随意添加，位置随意拖动，大小随意设置，那么布局css文件的某些样式也要存到slides的items里面的每张幻灯片的信息里面去了。
 ####<span id="4.3.3"></span>4.3.3  导出离线html文件 ：文本模板数据
 导出的离线文件有部分编辑功能和播放功能，而没有文件导入和导出的功能。而且，导出的html格式的文件仅仅是一个html文件，因此，一些系统的界面上用到的图片要转化成字符流格式（src=”data:image/png;base64, 字符流”）,特别是一些动态设置的布局图片，在大纲区要用js特别处理。
-<center>![](doc_imgs/4.18.png)
+![](doc_imgs/4.18.png)
 
-图4.18 导出离线html界面草图</center>
+<center>图4.18 导出离线html界面草图</center>
 
 导出的实质是将字符串html、css、js的字符串保存为html格式的文件，css放在html的```<style type = 'text/css'></style>```里面，js的放在```<script type="text/javascript"></script>```里面，然后拼接起来。为了处理和修改方便，作者本人将这些独立的部分分开，用通用的txt格式的文本存储这些模板，并将这些文本模板放在根目录下的template.html文件夹下面。
-<center>![](doc_imgs/4.19.png)
+![](doc_imgs/4.19.png)
 
-图4.19 用于生成html文件的模板数据的文本列表</center>
+<center>图4.19 用于生成html文件的模板数据的文本列表</center>
 
 这些模板文本里面很多数据是和系统的一致对应的，但是为了处理一些冲突、以及除去一些功能等，不免有些与系统对应的文件有所不同之处，这些具体要在实现的时候做具体的调试和规划。
 ####<span id="4.3.4"></span>4.3.4  用户在线数据
 用户在线数据仅仅是用来实现交互的在线模块，用于表现幻灯片系统有提供输入和输出幻灯片数据的能力，可用于数据库存储，能够有很好的嵌入性和兼容性。
 考虑到语言问题，这里我们用js操作xml文件模拟数据库的操作：
-<center>![](doc_imgs/4.20.png)
+![](doc_imgs/4.20.png)
 
-图4.20 数据库文件目录</center>
+<center>图4.20 数据库文件目录</center>
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -530,37 +530,37 @@ adjust.js文件：主要用于定义一些微调函数，或急需要添加的�
 
 ###<span id="5.1"></span>5.1  系统界面 
 系统界面与【系统界面结构】的设计的对比，如下是对应的效果截图：
-<center>![](doc_imgs/5.1.png)
+![](doc_imgs/5.1.png)
 
-图5.1 幻灯片编辑界面</center>
+<center>图5.1 幻灯片编辑界面</center>
 
-<center>![](doc_imgs/5.2.png)
+![](doc_imgs/5.2.png)
 
-图5.2 布局动态切换</center>
+<center>图5.2 布局动态切换</center>
 
-<center>![](doc_imgs/5.3.png)
+![](doc_imgs/5.3.png)
 
-图5.3 鼠标右键大纲列和编辑区的菜单</center>
+<center>图5.3 鼠标右键大纲列和编辑区的菜单</center>
 
-<center>![](doc_imgs/5.4.png)
+![](doc_imgs/5.4.png)
 
-图5.4 主题管理</center>
+<center>图5.4 主题管理</center>
 
-<center>![](doc_imgs/5.5.png)
+![](doc_imgs/5.5.png)
 
-图5.5 图片编辑选择</center>
+<center>图5.5 图片编辑选择</center>
 
-<center>![](doc_imgs/5.6.png)
+![](doc_imgs/5.6.png)
 
-图5.6 在线文件列表</center>
+<center>图5.6 在线文件列表</center>
 
-<center>![](doc_imgs/5.7.png)
+![](doc_imgs/5.7.png)
 
-图5.7 导入text格式的幻灯片</center>
+<center>图5.7 导入text格式的幻灯片</center>
 
-<center>![](doc_imgs/5.8.png)
+![](doc_imgs/5.8.png)
 
-图5.8 播放时切换页面</center>
+<center>图5.8 播放时切换页面</center>
 
 ###<span id="5.2"></span>5.2  数据层封装
 在前面【系统功能结构】中的分析，我们知道系统的数据层的操作主要是“storage”、“data”和“vm”三个模块组成。其中“storage”模块，负责本地存储操作。本地存储操作是保证断点续编的关键，用于防止浏览器误关、浏览器闪退等不可见异常导致编辑数据的丢失。
@@ -568,41 +568,41 @@ adjust.js文件：主要用于定义一些微调函数，或急需要添加的�
  “data”模块对“storage”模块进行了更细致的封装，还定义和初始化了系统的布局信息、主题信息、动作信息和编辑框类型信息等等，对外提供了对这些数据的细致的操作。
 “vm”模块引用“data”模块，其中对幻灯片名，大纲列表，当前主题，当前动作，当前编辑的幻灯片和当前编辑的幻灯片的布局等都添加了knockout[7]的监视，用于绑定前台视图，实现动态变化时，界面自然，不等待刷新，不产生闪烁效果。
 	在“vm”中，通过knockout给一些变量添加订阅和监视，这样就可以在前台实现绑定。当变量值有差异时，knockout就会通知界面，做出相应的动态调整。“vm”中对“data”里面的数据进行动态监视的主要有幻灯片名（title）、幻灯片名的编辑状态（editingTitle）、大纲区列表（pageList）、当前主题（currentDesign）、当前动作（currentTransition）、当前布局（curremtLayout）和当前编辑框（currentItem）等。
-<center>![](doc_imgs/5.9.png)
+![](doc_imgs/5.9.png)
 
-图5.9“data”模块的实现</center>
+<center>图5.9“data”模块的实现</center>
 ###<span id="5.3"></span>5.3  大纲区实现
 大纲区除了4.1.2中运用到的动态绑定技术，实现动态刷新外，还定义了很多按钮的操作，而这些操作结束后还要保证界面信息符合要求，是要做出一些调整的。由于大纲区是幻灯片的全局，这里出现问题或界面与编辑区不一致，是很影响体验效果的。大纲区顶部有个操作栏，定义了的添加页面、复制页面、上移页面、下移页面和删除页面的六个操作。但是，执行这些操作是会导致IE浏览器上的大纲区的布局图片丢失的，作者猜测是因为IE浏览器的缓存机制缺陷，所以当knockout动态变更的图片地址时，由于没有发出请求，浏览器才加载不出图片资源。
-<center>![](doc_imgs/5.10.png)
+![](doc_imgs/5.10.png)
 
-图5.10 “page”模块的实现</center>
+<center>图5.10 “page”模块的实现</center>
 代码中“暂时：…”是作者本人的注释习惯，虽然用那个方法解决了图片丢失问题，但是在每个操作函数中加入这样的代码段，很不符合设计规范，因此用“暂时”注释，表示优待优化。下面的注释是后来添加的大纲区右键的菜单代码，adjust.js中的部分方法会在后期整合到对应的模块中去。对于像addPage那样动态添加页面的操作，要给添加项定义新的右键菜单方法。这也是个人觉得图片丢失的解决方法不好的原因之一，这样虽然解决了问题，但是每个操作都像是添加过新页面，都要运行一遍AddPageListMenu函数，来绑定右键菜单。
 
 </center>![](doc_img/5.11.png)
 
-图5.11 界面动态绑定大纲区域列表</center>
+<center>图5.11 界面动态绑定大纲区域列表</center>
 
-<center>![](doc_imgs/5.12.png)
+![](doc_imgs/5.12.png)
 
-图5.12 大纲区动态绑定的界面效果</center>
+<center>图5.12 大纲区动态绑定的界面效果</center>
 
 ###<span id="5.4"></span>5.4  鼠标事件和键盘事件
 优秀的鼠标事件和键盘事件会大大增加应用的体验感官，让用户能够流畅的使用应用。基于HTML5的在线幻灯片系统中重点对大纲区、编辑区和播放界面定义了鼠标和键盘事件，其中包括大纲区的左键选中事件和右键菜单事件、编辑区的滚轮事件和右键菜单事件以及播放界面的左键下一页事件、右键菜单事件和键盘事件。
 
-<center>![](doc_imgs/5.13.png)
+![](doc_imgs/5.13.png)
 
-图5.13 鼠标左右键事件</center>
+<center>图5.13 鼠标左右键事件</center>
 
 还要注意的是浏览器有全局的右键菜单事件，要对其进行屏蔽：
-<center>![](doc_imgs/5.14.png)
+![](doc_imgs/5.14.png)
 
-图5.14 屏蔽全局的菜单事件</center>
+<center>图5.14 屏蔽全局的菜单事件</center>
 
 当然，也可在“contextmenu”事件中定义具体事件，然后返回false，同样可以实现右键菜单事件。
 滚轮事件是幻灯片软件使用中最常用的部分，然而web应用通常会忽略这一部分，往往因此丢失掉了一个完美的功能。然而，滚轮事件还时常涉及到兼容性问题，因此要在jQuery上面对滚轮事件做各个浏览器的兼容性扩展。
-<center>![](doc_imgs/5.15.png)
+![](doc_imgs/5.15.png)
 
-图5.15 鼠标滚轮事件实现</center>
+<center>图5.15 鼠标滚轮事件实现</center>
 
 键盘事件是对播放功能的一个扩展，在没有鼠标的情况下用键盘操作，实现了键盘事件就可以用无线遥控器对幻灯片进行操作了。
 
@@ -621,43 +621,43 @@ adjust.js文件：主要用于定义一些微调函数，或急需要添加的�
 ###<span id="5.5"></span>5.5  富文本编辑器
 
 目前的文本编辑器功能繁杂，而且很多是在后台语言辅助的情况下实现的，需要对应语言的运行环境。不仅如此，文本编辑框的功能是通过js绑定的，编辑栏是紧贴在文本编辑框上面，每次编辑时还要重复绑定，不符合简洁设计原则，且不利于扩展，况且界面效果也不能和PowerPoint相契合，因此这些文本编辑器都不能达到要求。
-<center>![](doc_imgs/5.16.png)
+![](doc_imgs/5.16.png)
 
-图5.16 传统的html编辑器效果</center>
+<center>图5.16 传统的html编辑器效果</center>
 
 1、HTML5的contenteditable属性：传统的html编辑器几乎都会采用html的iframe标签，实现对文本的html样式编辑，并且还要载入大量的js和css，使得代码环境紊乱，还容易产生冲突和不可预知的错误。不过，天无绝人之路，HTML5的优势又凸显出来了，就是他的contenteditable属性。不管是ifram、body、div，还是p、span等容器标签，只要加入了contenteditable=”true”属性，HTML5就可以将其变为可编辑框。而且这样的可编辑框不像input和textarea那样简单的文本编辑框，还是一个可接受html页面上复制的编辑框，甚至是word上面复制的文本内容，能够保证文本样式不丢失。
-<center>![](doc_imgs/5.17.png)
+![](doc_imgs/5.17.png)
 
-图5.17 添加了contenteditable属性的div复制网页文本的效果</center>
+<center>图5.17 添加了contenteditable属性的div复制网页文本的效果</center>
 
 2、JavaScript的execCommand方法：要想实现工具栏独立于编辑框，使得工具栏能对所有可编辑的区域发挥作用，并且不管该编辑区域是原先就有，还是后来动态添加的。通过JavaScript的execCommand方法都能对全局的编辑区域发挥效果。该方法的使用就简单的一句即可：
 document.execCommand( commandStr [,交互方式, 动态参数])
 其中commandStr支持的操作多达70多种，目前而言，本系统仅使用了十几种，包含撤销（undo）、重做（redo）、字体类型（FontName）、字体大小（FontSize）、字体颜色（ForeColor）、粗体（bold）、斜体（italic）、下划线（underline）、删除线（strikeThrough）、对齐方式（justifyLeft，justifyCenter，justifyRight，justifyFull）、缩进（indent，outdent）、序列（insertUnorderedList，insertOrderedList）、链接（CreateLink）等。
-<center>![](doc_imgs/5.18.png)
+![](doc_imgs/5.18.png)
 
-图5.18 系统的文本编辑工具栏</center>
+<center>图5.18 系统的文本编辑工具栏</center>
 
 经过绑定事件测试，这些功能完全可用，而且当需要扩展功能时，也可以完全不需要修改之前的代码实现扩展。
-<center>![](doc_imgs/5.19.png)
+![](doc_imgs/5.19.png)
 
-图5.19 系统用execCommand的编辑效果</center>
+<center>图5.19 系统用execCommand的编辑效果</center>
 
 ###<span id="5.6"></span>5.6  导出功能
 导出功能可以说是在线幻灯片系统最不可或缺的功能之一，也是该类应用核心意义所在。我们之所以编辑幻灯片是用来展示给别人看的，导出为html格式有利于携带和分享，像教学类的幻灯片导出还可以作为资料文件，学习和阅读。
 实现导出为单个html文件，简单的思路就是将这些web文件（js、html和css）糅合到一起。但是，还需要剔除一些不必要的功能，而且这些并不是完全复制粘贴，还要考虑很多容错性的处理。在【系统数据设计】的3.4.3节就讲到，需要将页面上一些静态的图片地址改成字符流格式，有的还需要用js动态设置img的src属性。同时，还需要自己制作模板数据文本，跟随开发的脚步，在测试调试过程中还要同步修改模板数据文本。这里，作者使用Beyond Compare软件进行文本差异的对比，能够很方便快捷的完成同步和调整。 
-<center>![](doc_imgs/5.20.png)
+![](doc_imgs/5.20.png)
 
-图5.20 Beyond Compare文本差异对比</center>
+<center>图5.20 Beyond Compare文本差异对比</center>
 
 模板和图片等方面准备好后，就可以导出了。在导出的时候，第一次会先将这些文件存到本地存储里面去，这样下次导出就可以直接得到了，不用再读文件。
-<center>![](doc_imgs/5.21.png)
+![](doc_imgs/5.21.png)
 
-图5.21 第一次导出，模板文本内容读到本地存储中</center>
+<center>图5.21 第一次导出，模板文本内容读到本地存储中</center>
 
 最后，到处的html文件根据各浏览器的测试，已经兼容IE和Firefox，但是对于Chrome还是有些许界面的问题，只支持播放的功能。
-<center>![](doc_imgs/5.22.png)
+![](doc_imgs/5.22.png)
 
-图5.22 导出后的离线界面</center>
+<center>图5.22 导出后的离线界面</center>
 
 ###<span id="5.7"></span>5.7  系统特色功能
 基于HTML5的在线幻灯片系统，利用Web的优势，可以实现很多特色功能。
@@ -675,32 +675,32 @@ document.execCommand( commandStr [,交互方式, 动态参数])
 - 与任何 js 框架兼容
 
 使用时我们将代码块放入```<pre><code></code></pre>```标签中，highlight.js会自己解析其中的代码，实现高亮。
-<center>![](doc_imgs/5.23.png)
+![](doc_imgs/5.23.png)
 
 图5.23 代码编辑框效果</center>
 
 ####<span id="5.7.2"></span>5.7.2  简易取色器
 取色器的插件多如牛毛，但是没有一个好用的取色器能够适应该幻灯片系统的文本编辑框，因此，作者本人根据其他的借鉴其他取色器的实现，改写了一个简易的取色器，点击时能够实现文本字体颜色设置。
-<center>![](doc_imgs/5.24.png)
+![](doc_imgs/5.24.png)
 
-图5.24 简易取色器功能代码</center>
+<center>图5.24 简易取色器功能代码</center>
 
 由代码可知，这是对jQuery的一个扩展，取色器并不是引擎渲染的配色器，而是排列组合的100多种颜色提供选择，再最后给取色的mouseup事件最后添加一个回调事件改变文本编辑框的颜色即可。
 
-<center>![](doc_imgs/5.25.png)
+![](doc_imgs/5.25.png)
 
-图5.25 简易取色器实现效果</center>
+<center>图5.25 简易取色器实现效果</center>
 
 ####<span id="5.7.3"></span>5.7.3  制作花样主题
 幻灯片主题是纯css实现的，如果能够开放用户自己制作主题的功能，然后将其保存在主题库中，该应用的主题就可以快速丰富，并且用户可以自己挑选使用别人制作的主题。这样的模式下，在线幻灯片系统就能轻易地实现主题市场的建立。
 	随着css编写的的复杂程度，可以做出很多丰富多彩的主题。如果给主题的key值加上额外的前缀或后缀，让js语言来判断是否存在这些前缀或后缀，来赋予页面全局不同的动作。比如，“multi-”前缀的“multi-random”主题，就会根据不同的页面序号，赋予不同的页面背景。
-<center>![](doc_imgs/5.26.png)
+![](doc_imgs/5.26.png)
 
-图5.26 随机主题</center>
+<center>图5.26 随机主题</center>
 
-<center>![](doc_imgs/5.27.png)
+![](doc_imgs/5.27.png)
 
-图 5.27 随机主题效果</center>
+<center>图 5.27 随机主题效果</center>
 
 切换动作的实现是增加在线幻灯片活力的重要部分，虽然目前对动作方面还不能实现和PowerPoint那样如此丰富多样的设置功能，但是根据Web效果，可以预览循环切换的动态效果。
 循环切换的效果实现，首先是获取与css对应切换效果关键字，将切换舞台设置的data-transition属性为该切换关键字，在舞台内添加切换实体，系统中是用10个div模拟，然后按顺序推进slide-pre、slide-current、slide-next三个样式在div的class中的移动。一次移动为一次事件函数，实现一次切换动作，用js时钟函数实现循环切换：
@@ -708,9 +708,9 @@ document.execCommand( commandStr [,交互方式, 动态参数])
 var loopTimer  = setInterval(一次切换，循环间隔[毫秒]）
 clearInterval(loopTimer)//清除时钟函数
 ```
-<center>![](doc_imgs/5.28.png)
+![](doc_imgs/5.28.png)
 
-图5.28 动态切换预览效果</center>
+<center>图5.28 动态切换预览效果</center>
 
 ###<span id="5.8"></span>5.8  界面兼容性调试
 
@@ -718,13 +718,13 @@ clearInterval(loopTimer)//清除时钟函数
 1. 本地存储方面：在【数据层封装】已经阐述，这里不做赘述。
 2. 鼠标滚轮事件jQuery的兼容性扩展：在【鼠标事件和键盘事件】中已经阐述，不做赘述。
 3. 去除大纲区标题中文字的标签和样式：大纲区的标题是对应幻灯片的标题，而幻灯片的标题是文本编辑框，可编辑的，会产生标签和样式。因此，绑定时要去除样式。
-    <center>![](doc_imgs/5.29.png)
+    ![](doc_imgs/5.29.png)
     
-    图5.29 未处理的标题中会有html标签</center>
+    <center>图5.29 未处理的标题中会有html标签</center>
     
-    <center>![](doc_imgs/5.30.png)
+    ![](doc_imgs/5.30.png)
     
-    图5.30 去除字符串中html标签的jQuery扩展</center>
+    <center>图5.30 去除字符串中html标签的jQuery扩展</center>
     
 4. 播放时全屏兼容性处理：不同的浏览器内核，对全屏的调用也不同，一般有IE的ms、Firefox的moz、Chrome的webkit和其他通用标准的。
 
