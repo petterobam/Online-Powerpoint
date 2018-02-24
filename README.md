@@ -10,6 +10,14 @@
 	
 	演示界面：https://petterobam.github.io/Online-Powerpoint/
 	PS:火狐兼容性最好
+	
+	部分截图：
+	
+	![](doc_imgs/4.1.png)
+	幻灯片编辑页面全览设计草图
+	
+	![](doc_imgs/5.1.png)
+	幻灯片编辑界面实现效果图
 
 	下面是取自毕业设计的内容
 
@@ -27,7 +35,7 @@ HTML5作为Web时代的新星，拥有更高的可用性和更好的体验效果
 
 ## 目  录
 
-|目  录|目  录|
+|目  录|
 |:--|:--|
 |<a href="#1--绪论">1  绪论	</a>|<a href="#43--系统数据设计">4.3  系统数据设计	</a>|
 |<a href="#11--项目研究背景">1.1  项目研究背景	</a>|<a href="#431--主题和动作数据">4.3.1  主题和动作数据	</a>|
@@ -57,17 +65,17 @@ HTML5作为Web时代的新星，拥有更高的可用性和更好的体验效果
 ## 1  绪论
 ### 1.1  项目研究背景
 1. HTML5
-2014年10月29日，万维网联盟泪流满面地宣布，经过几乎8年的艰辛努力，HTML5标准规范终于最终制定完成了，并已公开发布。[8]
-在此之前的几年时间里，已经有很多开发者陆续使用了HTML5的部分技术，Firefox、Google Chrome、Opera、Safari 4+、Internet Explorer 9+都已支持HTML5。[8]
-HTML5将会取代1999年制定的HTML 4.01、XHTML 1.0标准，以期能在互联网应用迅速发展的时候，使网络标准达到符合当代的网络需求，为桌面和移动平台带来无缝衔接的丰富内容。[8]
-W3C CEO Jeff Jaffe博士表示：“HTML5将推动Web进入新的时代。不久以前，Web还只是上网看一些基础文档，而如今，Web是一个极大丰富的平台。我们已经进入一个稳定阶段，每个人都可以按照标准行事，并且可用于所有浏览器。如果我们不能携起手来，就不会有统一的Web。” [8]
-HTML5还有望成为梦想中的“开放Web平台”(Open Web Platform)的基石，如能实现可进一步推动更深入的跨平台Web应用。[8]
+2014年10月29日，万维网联盟泪流满面地宣布，经过几乎8年的艰辛努力，HTML5标准规范终于最终制定完成了，并已公开发布。[^8]
+在此之前的几年时间里，已经有很多开发者陆续使用了HTML5的部分技术，Firefox、Google Chrome、Opera、Safari 4+、Internet Explorer 9+都已支持HTML5。[^8]
+HTML5将会取代1999年制定的HTML 4.01、XHTML 1.0标准，以期能在互联网应用迅速发展的时候，使网络标准达到符合当代的网络需求，为桌面和移动平台带来无缝衔接的丰富内容。[^8]
+W3C CEO Jeff Jaffe博士表示：“HTML5将推动Web进入新的时代。不久以前，Web还只是上网看一些基础文档，而如今，Web是一个极大丰富的平台。我们已经进入一个稳定阶段，每个人都可以按照标准行事，并且可用于所有浏览器。如果我们不能携起手来，就不会有统一的Web。” [^8]
+HTML5还有望成为梦想中的“开放Web平台”(Open Web Platform)的基石，如能实现可进一步推动更深入的跨平台Web应用。[^8]
 HTML5赋予网页更好的意义和结构。更加丰富的标签将随着对RDFa的，微数据与微格式等方面的支持，构建对程序、对用户都更有价值的数据驱动的Web。
-基于HTML5开发的网页APP拥有更短的启动时间，更快的联网速度，这些全得益于HTML5 APP Cache，以及本地存储功能。Indexed DB（html5本地存储最重要的技术之一）和API说明文档。[8]
-HTML5将会最终代替多媒体框架，如Flash，但是短期看来还不是时候，因为将现有应用Flash的网络开发完全转向HTML5还需要一段时间。尽管HTML5提出了许多优点，但是还可能有某些应用更适合于更灵活的框架。一些主流的大公司都逐步转向使用HTML5，谷歌于2015年2月26日开始自动将Flash广告转换为HTML5格式，这可能会加速HTML5替代Flash的进程，但是这个转变的过程也不是一蹴而就的。[8]
-它承诺带来一个无缝的网络。HTML5会带来一个统一的网络，无论是笔记本，台式机，还是智能手机都应该很方便的浏览基于HTML5的网站。因此在设计网站的时候，开发者需要重新考虑用户体验，网站浏览，网站结构等因素使得这个网站对任何硬件设备都通用。[8]
-很早就有人设想，能不能“一次设计，普遍适用”，让同一张网页自动适应不同大小的屏幕，根据屏幕宽度，自动调整布局（layout）。[8]
-2010年，Ethan Marcotte提出了“自适应网页设计”这个名词，指可以自动识别屏幕宽度、并做出相应调整的网页设计。[8]
+基于HTML5开发的网页APP拥有更短的启动时间，更快的联网速度，这些全得益于HTML5 APP Cache，以及本地存储功能。Indexed DB（html5本地存储最重要的技术之一）和API说明文档。[^8]
+HTML5将会最终代替多媒体框架，如Flash，但是短期看来还不是时候，因为将现有应用Flash的网络开发完全转向HTML5还需要一段时间。尽管HTML5提出了许多优点，但是还可能有某些应用更适合于更灵活的框架。一些主流的大公司都逐步转向使用HTML5，谷歌于2015年2月26日开始自动将Flash广告转换为HTML5格式，这可能会加速HTML5替代Flash的进程，但是这个转变的过程也不是一蹴而就的。[^8]
+它承诺带来一个无缝的网络。HTML5会带来一个统一的网络，无论是笔记本，台式机，还是智能手机都应该很方便的浏览基于HTML5的网站。因此在设计网站的时候，开发者需要重新考虑用户体验，网站浏览，网站结构等因素使得这个网站对任何硬件设备都通用。[^8]
+很早就有人设想，能不能“一次设计，普遍适用”，让同一张网页自动适应不同大小的屏幕，根据屏幕宽度，自动调整布局（layout）。[^8]
+2010年，Ethan Marcotte提出了“自适应网页设计”这个名词，指可以自动识别屏幕宽度、并做出相应调整的网页设计。[^8]
 总结概括HTML5有以下优点：
     - 提高可用性和改进用户的友好体验；
     - 有几个新的标签，这将有助于开发人员定义重要的内容；
@@ -77,8 +85,8 @@ HTML5将会最终代替多媒体框架，如Flash，但是短期看来还不是�
 
 2. 幻灯片
 在电脑发展史上最辉煌、最具影响力、也引来最多抱怨的软件之一PowerPoint今年29岁了。很难说PowerPoint还将有多少个生日庆典；挖苦这款软件的人几乎同愿意使用的人一样多。
-PowerPoint曾使数不胜数的精彩演示文稿锦上添花，也曾让无穷无尽的愚蠢想法穿上了图形化的华丽外衣。它不仅频频出现在会议室、教室课堂、产品发布会上，也出现在诸如六年级的读书报告中。[9]
-1984年，Gaskins加入一家衰退中的硅谷软体公司叫做Forethought并且雇用了软体开发师 Dennis Austin。Bob和Dennis完善化他的梦想，并设计了"Presenter"实行了该计划。Dennis与Tom Rudkin设计了原始版本的程式。Bob后来建议了新的产品名"PowerPoint"，该名称最后变成产品正式名称。[9]
+PowerPoint曾使数不胜数的精彩演示文稿锦上添花，也曾让无穷无尽的愚蠢想法穿上了图形化的华丽外衣。它不仅频频出现在会议室、教室课堂、产品发布会上，也出现在诸如六年级的读书报告中。[^9]
+1984年，Gaskins加入一家衰退中的硅谷软体公司叫做Forethought并且雇用了软体开发师 Dennis Austin。Bob和Dennis完善化他的梦想，并设计了"Presenter"实行了该计划。Dennis与Tom Rudkin设计了原始版本的程式。Bob后来建议了新的产品名"PowerPoint"，该名称最后变成产品正式名称。[^9]
 然而，随着PowerPoint随着版本的升级，越加变得愈加臃肿巨大，从现在还可通用的PowerPoint2003的80MB到PowerPoint2013的800MB 和PowerPoint2016的900MB。升级的不同步，会需要做很多兼容性工作，这也是导致PowerPoint臃肿的一个重要的不可避免的因素之一。由此，当在脱机环境下，拷贝的PPT文件如果在没有幻灯片打开播放的软件环境下，只不过是占用存储的垃圾文件。当然，除了PowerPoint还有WPS，WPS能够做到兼容PowerPoint文件，但PowerPoint却不会顾及WPS的感受，单方面的迁就必然导致因为版本的不同步，造成文件读取效果的差异。同样，WPS作为一款软件也有PowerPoint之前所讲的缺陷。
 总结概括幻灯片类软件有如下缺陷：
     - 安装包随着版本的升级愈发臃肿；
@@ -87,7 +95,7 @@ PowerPoint曾使数不胜数的精彩演示文稿锦上添花，也曾让无穷�
     - 市面上不同的幻灯片产品产生的文件不能用一个统一的程序打开。
 
 ### 1.2  项目研究意义
-根据【项目研究背景】里面的论述，结合HTML5[13]的优势和技术支持，针对当下幻灯片类软件的种种不可避免的缺陷，基于HTML5的在线幻灯片系统的实现有如下意义：
+根据【项目研究背景】里面的论述，结合HTML5[^13]的优势和技术支持，针对当下幻灯片类软件的种种不可避免的缺陷，基于HTML5的在线幻灯片系统的实现有如下意义：
 1. 迎合市场需求，创造更加便捷的幻灯片使用环境
 幻灯片已经走进了我们生活的方方面面，不管是科学教育，还是商业展示；不管是论文答辩，还是文学报告；不管是表达情感，还是抒发观点等等。幻灯片的演示，能更好、更直观的表达出演讲者所要表达的主题和主要内容，使演讲者有了它在演讲的时候能实现更有秩序和更完美的演讲，提高沟通交流的效率。特别是在如今信息爆炸的时代，他的重要性尤为突出。
 基于HTML5的在线幻灯片系统，能够让使用者通过浏览器轻松的使用幻灯片的功能。基于HTML5的在线幻灯片系统，能够让使用者随时随地的做到断点续编，在不同的机器上，不同的场景下，只要有浏览器。基于HTML5的在线幻灯片系统，能够导出htnl格式的文件，并在任意一个平台编辑和演示，即便是脱机状态，只要有浏览器。基于HTML5的在线幻灯片系统，能够在任意一种操作系统环境下实现功能，不管是PC端的Windows、Linux、Mac，还是Android、IOS、Windows Phone，界面相同，效果相同，只要有浏览器。
@@ -99,7 +107,7 @@ PowerPoint曾使数不胜数的精彩演示文稿锦上添花，也曾让无穷�
 基于HTML5的在线幻灯片系统，主要是实现幻灯片的编辑和展示功能，而其中使用到的xml文件，仅仅只是模拟数据库实现用户信息的存储。本人实现的功能类似于一个幻灯片编辑使用的插件，可以嵌入任意系统之中，该插件会提供编辑后的幻灯片的文本内容，可用于数据库存储。于是，不管在什么系统中，只要嵌入这种插件就可以装载幻灯片系统的全部功能。而对于Web应用，功能的展示窗口还是浏览器，系统导出的离线幻灯片是html格式，打开的工具还是浏览器，由此可得，虽然市面上有不同类型的幻灯片软件，有不同类型后缀的幻灯片文本，但在基于HTML5的在线幻灯片系统面前，这些可能的隐患都可迎刃而解，那就是总会有浏览器。作者在幻想，如果能够实现.ppt等格式的文件的导入，那就真是兼收并蓄了，不过那可能是在线幻灯片系统2.0版本的提升功能了。
 ### 1.3  论文的组织结构
 本论文分五个章节，具体章节安排如下：
-- 第1章 绪论，主要介绍项目研究的背景和意义，针对HTML5[1]和幻灯片的当前背景分析以及论述了该应用开发的实际意义。
+- 第1章 绪论，主要介绍项目研究的背景和意义，针对HTML5[^1]和幻灯片的当前背景分析以及论述了该应用开发的实际意义。
 - 第2章 开发技术，主要对应用的开发工具和关键技术进行了简单的介绍。
 - 第3章 需求分析，主要对应用进行需求分析，介绍了项目开发性能、可行性、数据存储、运行环境以及基于HTML5的在线幻灯片系统应用所需实现的功能。
 - 第4章 系统分析与设计，介绍了系统的设计结构、各个功能模块、设计模块的相关的系统数据的设计，绘制了很多系统的结构图和关系图，为基于HTML5的在线幻灯片系统的实现提供了明确的思路和方法。 
@@ -110,12 +118,12 @@ PowerPoint曾使数不胜数的精彩演示文稿锦上添花，也曾让无穷�
 
 ## 2  开发技术	
 ### 2.1  开发工具
-工欲善其事，必先利其器。基于HTML5的在线幻灯片系统，作为开源的一个项目，具有更丰富的开发工具的选择。就编辑工具、调试工具而言，个人倾向于Sublime Text[11] 3和Firefox Developer Edition两大前端利器。运行环境自然是各类浏览器，目前，市场上的浏览器纷繁复杂，种类繁多，不过大体上分为三类：IE类、Google Chrome类、其他类。考虑到兼容问题，当今的各类浏览器中分为以下四大内核：
+工欲善其事，必先利其器。基于HTML5的在线幻灯片系统，作为开源的一个项目，具有更丰富的开发工具的选择。就编辑工具、调试工具而言，个人倾向于Sublime Text[^11] 3和Firefox Developer Edition两大前端利器。运行环境自然是各类浏览器，目前，市场上的浏览器纷繁复杂，种类繁多，不过大体上分为三类：IE类、Google Chrome类、其他类。考虑到兼容问题，当今的各类浏览器中分为以下四大内核：
 
-1. Trident内核，代表产品Internet Explorer，又称其为IE内核。Trident（又称为MSHTML），是微软开发的一种排版引擎。[10]
-2. Gecko内核，代表作品Mozilla FirefoxGecko是一套开放源代码的、以C++编写的网页排版引擎。Gecko是最流行的排版引擎之一，仅次于Trident。[10]
-3. WebKit内核，代表作品Safari、Chromewebkit 是一个开源项目，包含了来自KDE项目和苹果公司的一些组件，主要用于Mac OS系统，它的特点在于源码结构清晰、渲染速度极快。缺点是对网页代码的兼容性不高，导致一些编写不标准的网页无法正常显示。[10]
-4. Presto内核，代表作品OperaPresto是由Opera Software开发的浏览器排版引擎，供Opera 7.0及以上使用。它取代了旧版Opera 4至6版本使用的Elektra排版引擎，包括加入动态功能，例如网页或其部分可随着DOM及Script语法的事件而重新排版。[10]
+1. Trident内核，代表产品Internet Explorer，又称其为IE内核。Trident（又称为MSHTML），是微软开发的一种排版引擎。[^10]
+2. Gecko内核，代表作品Mozilla FirefoxGecko是一套开放源代码的、以C++编写的网页排版引擎。Gecko是最流行的排版引擎之一，仅次于Trident。[^10]
+3. WebKit内核，代表作品Safari、Chromewebkit 是一个开源项目，包含了来自KDE项目和苹果公司的一些组件，主要用于Mac OS系统，它的特点在于源码结构清晰、渲染速度极快。缺点是对网页代码的兼容性不高，导致一些编写不标准的网页无法正常显示。[^10]
+4. Presto内核，代表作品OperaPresto是由Opera Software开发的浏览器排版引擎，供Opera 7.0及以上使用。它取代了旧版Opera 4至6版本使用的Elektra排版引擎，包括加入动态功能，例如网页或其部分可随着DOM及Script语法的事件而重新排版。[^10]
 
 作者我在开发过程中优先满足用户最多的IE类浏览器和个人最爱的火狐浏览器，当然，Google Chrome如今也很流行，同时对应的Mac端的Safari的兼容，Google Chrome就作为测试的承担者了，最后Opera也会看看效果。
 
@@ -124,7 +132,7 @@ PowerPoint曾使数不胜数的精彩演示文稿锦上添花，也曾让无穷�
 图2.1 浏览器-测试环境
 
 1. Sublime Text
-Sublime Text 是一个代码编辑器，也是HTML和散文先进的文本编辑器。Sublime Text是由程序员Jon Skinner于2008年1月份所开发出来，它最初被设计为一个具有丰富扩展功能的Vim。[11]
+Sublime Text 是一个代码编辑器，也是HTML和散文先进的文本编辑器。Sublime Text是由程序员Jon Skinner于2008年1月份所开发出来，它最初被设计为一个具有丰富扩展功能的Vim。[^11]
 Sublime Text具有漂亮的用户界面和强大的功能，例如代码缩略图，Python的插件，代码段等。还可自定义键绑定，菜单和工具栏。Sublime Text 的主要功能包括：拼写检查，书签，完整的 Python API ， Goto 功能，即时项目切换，多选择，多窗口等等。Sublime Text 是一个跨平台的编辑器，同时支持Windows、Linux、Mac OS X等操作系统。简而言之，Sublime Text编辑器有如下优点：
     - 主流前端开发编辑器
     - 体积较小，运行速度快
@@ -133,7 +141,7 @@ Sublime Text具有漂亮的用户界面和强大的功能，例如代码缩略�
     - 内嵌python解释器支持插件开发以达到可扩展目的
     - Package Control：ST支持的大量插件可通过其进行管理
 对于第六点，充分使用能大大减少重复代码量，提高编码效率，进行HTML5开发可以安装如下几样插件：
-        * Emmet：它的前身是大名鼎鼎的Zen coding，如果你从事Web前端开发的话，对该插件一定不会陌生。它使用仿CSS[2]选择器的语法来生成代码，大大提高了HTML/CSS代码编写的速度。
+        * Emmet：它的前身是大名鼎鼎的Zen coding，如果你从事Web前端开发的话，对该插件一定不会陌生。它使用仿CSS[^2]选择器的语法来生成代码，大大提高了HTML/CSS代码编写的速度。
         * jQuery Package for sublime Text：该插件是编写js代码时对jQuery的函数进行提示的作用。由于该项目是一个具有很大发展空间的项目，代码内容结构要清晰明了，有较强的扩展性，因此会有大量的封装。同时，jQuery在兼容性方面有无与伦比的口碑和优势，考虑兼容性问题处理的复杂性和工作量，用jQuery处理一些基本的操作，会起到事半功倍的作用。
 
 2. Firefox Developer Edition
@@ -145,16 +153,16 @@ Firefox Developer Edition 是Firefox 专门为开发者研发的浏览器(Built 
 - JavaScript调试器
 - 网络监测器
 - 样式编辑器
-3、Axure RP[12]
+3、Axure RP[^12]
 Axure RP是美国Axure Software Solution公司旗舰产品，是一个专业的快速原型设计工具，让负责定义需求和规格、设计功能和界面的专家能够快速创建应用软件或Web网站的线框图、流程图、原型和规格说明文档。作为专业的原型设计工具，它能快速、高效的创建原型，同时支持多人协作设计和版本控制管理。
 ### 2.2  关键技术 
-关键技术方面除了jQuery[3]自身的兼容性优势外，主要有如下：
-- 针对界面布局的Bootstrap[14]；
-- 针对动态监视的KnockoutJS[16]；
-- 针对模块封装及动态加载RequireJS[15]；
+关键技术方面除了jQuery[^3]自身的兼容性优势外，主要有如下：
+- 针对界面布局的Bootstrap[^14]；
+- 针对动态监视的KnockoutJS[^16]；
+- 针对模块封装及动态加载RequireJS[^15]；
 
 #### 2.2.1  Bootstrap
-Bootstrap[6]作为一款前端开发框架，其中包含了规范的css样式集和javascript[4]的插件，特别是其响应式布局，使得不管是PC端还是移动端，都能保证不会大出本意的界面效果。 
+Bootstrap[^6]作为一款前端开发框架，其中包含了规范的css样式集和javascript[^4]的插件，特别是其响应式布局，使得不管是PC端还是移动端，都能保证不会大出本意的界面效果。 
 分析Bootstrap插件源码可知，它的每一段插件代码都封装在下面的区域中
 ```javascript
 +function ($) {  
@@ -197,7 +205,7 @@ MVVM模式是一个关注于前端开发的开发模式，在这种设计模式�
 使用这种模式开发的系统的前端是松耦合的，使得系统更多的关注页面的呈现方式，也增加了前端的灵活性。
 
 #### 2.2.3  RequireJS
-RequireJS[15]是一款遵循AMD规范协议的JavaScript[5]模拟加载器。而AMD（Asynchronous Modules Definition），异步模块定义，提供定义模块及异步加载该模块依赖的机制。因此，针对基于HTML5的在线幻灯片系统，RequireJS有如下优点：
+RequireJS[^15]是一款遵循AMD规范协议的JavaScript[^5]模拟加载器。而AMD（Asynchronous Modules Definition），异步模块定义，提供定义模块及异步加载该模块依赖的机制。因此，针对基于HTML5的在线幻灯片系统，RequireJS有如下优点：
 - 更好的代码组织方式
 - 按需加载
 - 更好的处理依赖同时避免命名冲突
@@ -243,7 +251,7 @@ RequireJS中主要有两个重要的方法：
 ### 3.3  系统可行性分析
 系统可行性分析的目的是用最小的代价在尽可能短的时间内确定问题是否能够解决，主要是在需求分析完成后，针对需求分析的要求，分析项目在各方面是否可行，是否值得去实现。对基于HTML5的在线幻灯片系统的设计与实现主要分析了包括技术可行性，操作可行性，法律可行性。
 1. 技术可行性
-基于HTML5的在线幻灯片系统，核心技术采用的是HTML5+CSS+Javascript[1]。由第一章的【项目研究背景】可知，在HTML标准发展的进程中，超文本标记语言由HTML 第一版（非标准）、HTML 2.0、HTML 3.2、HTML 4.0、HTML 4.01，发展至如今的HTML 5。HTML5已经拥有实现很多功能性应用的基础，而且随着W3C的推广、众多网页前端工程师的推崇和HTML5自身比之以前的优越性，几乎所有的浏览器都已经对HTML5做出了兼容，甚至是以HTML5为主的解析环境，这让基于HTML5的在线幻灯片系统有着天然的跨平台优势。在界面样式方面主要针对IE浏览器做出兼容，因为CSS 3的版本中一些选择器和属性对于IE浏览器来说是无效的，所以这些兼容性样式对于后期测试来说将是重点。Javascript的调试一直是前端工程师的头痛点，特别是由于环境的不同，而引出很多难以避免问题要去处理。作者在编写程序的过程中以jQuery封装的javascript库文件为基础，对敏感性操作进行封装 ，主要包括鼠标、键盘的各种事件，元素某些属性的获取，文件存取的操作等，达到对其他浏览器因兼容性而产生的问题量降到最低，毕竟jQuery的兼容性做的事非常好的。同时，鼠标、键盘的各类事件如此丰富，使得基于HTML5的在线幻灯片系统能够做到像PC端幻灯片应用那样流畅的使用效果。
+基于HTML5的在线幻灯片系统，核心技术采用的是HTML5+CSS+Javascript[^1]。由第一章的【项目研究背景】可知，在HTML标准发展的进程中，超文本标记语言由HTML 第一版（非标准）、HTML 2.0、HTML 3.2、HTML 4.0、HTML 4.01，发展至如今的HTML 5。HTML5已经拥有实现很多功能性应用的基础，而且随着W3C的推广、众多网页前端工程师的推崇和HTML5自身比之以前的优越性，几乎所有的浏览器都已经对HTML5做出了兼容，甚至是以HTML5为主的解析环境，这让基于HTML5的在线幻灯片系统有着天然的跨平台优势。在界面样式方面主要针对IE浏览器做出兼容，因为CSS 3的版本中一些选择器和属性对于IE浏览器来说是无效的，所以这些兼容性样式对于后期测试来说将是重点。Javascript的调试一直是前端工程师的头痛点，特别是由于环境的不同，而引出很多难以避免问题要去处理。作者在编写程序的过程中以jQuery封装的javascript库文件为基础，对敏感性操作进行封装 ，主要包括鼠标、键盘的各种事件，元素某些属性的获取，文件存取的操作等，达到对其他浏览器因兼容性而产生的问题量降到最低，毕竟jQuery的兼容性做的事非常好的。同时，鼠标、键盘的各类事件如此丰富，使得基于HTML5的在线幻灯片系统能够做到像PC端幻灯片应用那样流畅的使用效果。
 2. 操作可行性
    基于HTML5的在线幻灯片系统，在系统界面和操作流程上是汲取类似于PowerPoint这样的幻灯片软件的优秀常用的方面。界面方面，力求简洁大方，重要的部分布局做到与用户记忆相合。操作方面，做到方便快捷，做到每一个鼠标事件，特别是右键菜单和滚轮事件，和PowerPoint契合，使得用户操作时不会感到不适，降低用户使用成本。因此，在操作上，基于HTML5的在线幻灯片系统易于使用户接受使用。
 3. 法律可行性
@@ -545,7 +553,7 @@ adjust.js文件：主要用于定义一些微调函数，或急需要添加的�
 在前面【系统功能结构】中的分析，我们知道系统的数据层的操作主要是“storage”、“data”和“vm”三个模块组成。其中“storage”模块，负责本地存储操作。本地存储操作是保证断点续编的关键，用于防止浏览器误关、浏览器闪退等不可见异常导致编辑数据的丢失。
 其中“storage”中用到的本地存储对象是对window.localStorage的一个兼容性扩展，在浏览器支持window.localStorage时，使用window.localStorage，不支持时使用IE的userData。虽然IE8以后的浏览器都支持window.localStorage，但是IE浏览器的localStorage不支持本地测试，因此为了维持稳定，还做了本地文件打开或网站文件打开的判断。
  “data”模块对“storage”模块进行了更细致的封装，还定义和初始化了系统的布局信息、主题信息、动作信息和编辑框类型信息等等，对外提供了对这些数据的细致的操作。
-“vm”模块引用“data”模块，其中对幻灯片名，大纲列表，当前主题，当前动作，当前编辑的幻灯片和当前编辑的幻灯片的布局等都添加了knockout[7]的监视，用于绑定前台视图，实现动态变化时，界面自然，不等待刷新，不产生闪烁效果。
+“vm”模块引用“data”模块，其中对幻灯片名，大纲列表，当前主题，当前动作，当前编辑的幻灯片和当前编辑的幻灯片的布局等都添加了knockout[^7]的监视，用于绑定前台视图，实现动态变化时，界面自然，不等待刷新，不产生闪烁效果。
 	在“vm”中，通过knockout给一些变量添加订阅和监视，这样就可以在前台实现绑定。当变量值有差异时，knockout就会通知界面，做出相应的动态调整。“vm”中对“data”里面的数据进行动态监视的主要有幻灯片名（title）、幻灯片名的编辑状态（editingTitle）、大纲区列表（pageList）、当前主题（currentDesign）、当前动作（currentTransition）、当前布局（curremtLayout）和当前编辑框（currentItem）等。
 ![](doc_imgs/5.9.png)
 
@@ -752,27 +760,27 @@ clearInterval(loopTimer)//清除时钟函数
 查看了百度百科关于PowerPoint的介绍，发现PowerPoint还有如此多的功能，这些既是方向，又是挑战。
 
 ## 参考文献
-- [1]胡军, 刘伯成, 刘晓强编著.Web前端开发案例教程:HTML+CSS+JavaScript[M]. 北京:人民邮电出版社,2015
-- [2]刘玉红编著. CSS3+DIV网页样式与布局案例课堂- [M]. 北京:清华大学出版社,2015
-- [3]袁江编著. jQuery开发从入门到精通- [M]. 北京:清华大学出版社,2013
-- [4](美) Nicholas C. Zakas尼古拉斯著. JavaScript面向对象精要- [M].胡世杰译.北京:人民邮电出版社,2014
-- [5]曾探著. JavaScript设计模式与开发实践- [M]. 北京:人民邮电出版社,2015
-- [6]Alan Forbes.The Joy of Bootstrap: A Smarter Way to Learn the World's Most Popular Web Framework- [M].6 Aug 2014 
-- [7]Nathan A. Rice. Knockout Js Self Study- [M]. 8 May 2015
-- [8]百度百科. HTML5- [OL]. http://baike.baidu.com/link?url=BO96dG9NmDs6mCia9P
+- [^1]胡军, 刘伯成, 刘晓强编著.Web前端开发案例教程:HTML+CSS+JavaScript[M]. 北京:人民邮电出版社,2015
+- [^2]刘玉红编著. CSS3+DIV网页样式与布局案例课堂- [M]. 北京:清华大学出版社,2015
+- [^3]袁江编著. jQuery开发从入门到精通- [M]. 北京:清华大学出版社,2013
+- [^4](美) Nicholas C. Zakas尼古拉斯著. JavaScript面向对象精要- [M].胡世杰译.北京:人民邮电出版社,2014
+- [^5]曾探著. JavaScript设计模式与开发实践- [M]. 北京:人民邮电出版社,2015
+- [^6]Alan Forbes.The Joy of Bootstrap: A Smarter Way to Learn the World's Most Popular Web Framework- [M].6 Aug 2014 
+- [^7]Nathan A. Rice. Knockout Js Self Study- [M]. 8 May 2015
+- [^8]百度百科. HTML5- [OL]. http://baike.baidu.com/link?url=BO96dG9NmDs6mCia9P
 8OiwCBQiVoFxdgcnCxEG0SIj9sbrhXrTISXaMSIa5MxEqOhOGG6dvta5o4G6rEyaQqeK, 2015-11-29 
-- [9]百度百科. Microsoft Office PowerPoint- [OL]. http://baike.baidu.com/link?url=W9Hajkq
+- [^9]百度百科. Microsoft Office PowerPoint- [OL]. http://baike.baidu.com/link?url=W9Hajkq
 GmSGjkwIY6_7XWzn9uT9FLPdk9efMS4TU4ZZMiw58Ka370bBkZD4N1gy7V0ADjJob29TmBORxiATl8wGYG9Dlpa0yJMjevY4BOlKmghzHHJBvQbf0LJgjhszr_dyi5P2ZScoSq2vixe53EK,2016-01-22
-- [10]百度百科.浏览器内核- [OL]. http://baike.baidu.com/link?url=p_zeam3AC60ium0EywW
+- [^10]百度百科.浏览器内核- [OL]. http://baike.baidu.com/link?url=p_zeam3AC60ium0EywW
 -6IWXL1spE1JNA5qjLIWexm0HVX2i3X-rUu1lY-eG3m4IaqNBHnNl8pat_kYo6EW4Z_,2016-04-05
-- [11]百度百科. Sublime Text- [OL]. http://baike.baidu.com/link?url=UUeaW1kNcpYQ052X
+- [^11]百度百科. Sublime Text- [OL]. http://baike.baidu.com/link?url=UUeaW1kNcpYQ052X
 rG7wMeesV8M0XzLDIkAEvIp45YVzNz5sX6pQNTGmcdcqCTaPszTfPV4XnRqPnaU6kOMHwa, 2016-05-15
-- [12]百度百科. Axure RP- [OL]. http://baike.baidu.com/link?url=5-LEBnw4hlEDy4Rawqe_
+- [^12]百度百科. Axure RP- [OL]. http://baike.baidu.com/link?url=5-LEBnw4hlEDy4Rawqe_
 T7MFvW86IS5NP0lU6_SsIHyENuDdWwsrui0O3RPlMGnBKhba2K49WUVkKpob4bjw3a, 2015-06-17
-- [13]W3School.HTML5教程- [OL]. http://www.w3school.com.cn/html5/,2016-3
-- [14]百度百科.Bootstrap- [OL]. http://baike.baidu.com/link?url=1iczg6kA5pT329sFvD-a3
+- [^13]W3School.HTML5教程- [OL]. http://www.w3school.com.cn/html5/,2016-3
+- [^14]百度百科.Bootstrap- [OL]. http://baike.baidu.com/link?url=1iczg6kA5pT329sFvD-a3
 YHbxNp4G0ry6gMIjTjoGMoScvCy7w5gBFPruTEP6mtJqCf4pwCnlOiJduJEgQLCcsm9eliUa568-zqidlzbzmu, 2015-09-16
-- [15]RequireJS中文网.RequireJS- [OL]. http://www.requirejs.cn/home.html,2016-4
-- [16]Knockout官网.Knockout [OL]: Introduction. http://knockoutjs.com/documentation
+- [^15]RequireJS中文网.RequireJS- [OL]. http://www.requirejs.cn/home.html,2016-4
+- [^16]Knockout官网.Knockout [OL]: Introduction. http://knockoutjs.com/documentation
 /introduction.html,2016-4
 
