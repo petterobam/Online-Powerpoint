@@ -142,6 +142,13 @@
 	margin-left: auto;
 	margin-right: auto; 
 }
+#mypagebar .btn-group{
+	margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 91.66667%;
+    max-width: 220px;
+}
 #page-list{
 	width: 91.66667%;
 	max-width: 220px;
@@ -269,4 +276,18 @@
 #player-slides-container .slide{
 	line-height: normal;
 	font-size: 100%;
+}
+#sidebar {
+    padding: 10px 0 20px;
+    float: left;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-box;
+    display: box;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -ms-box-orient: vertical;
+    box-orient: vertical;
+    width: 17.77778%;
+    max-width: 500px; 
 }
