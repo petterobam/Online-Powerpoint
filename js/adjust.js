@@ -332,14 +332,12 @@ function removeEditorMousewheelEvent(){
 }
 
 function adjustCss(){
-    
-    try{
+    /*try{
         if(!!window.ActiveXObject || "ActiveXObject" in window){
             $("#editor-stage").css('height', '578px');
             $("#editor-slide").css('margin-top', '45px');
         }
     }catch(e){}
-
     var hDistance = 0;
     try{
         hDistance = $("#editor-stage").offset().top - $("#editor-slide").offset().top;
@@ -348,7 +346,11 @@ function adjustCss(){
     }
     if(hDistance <= 5 && hDistance >= -5){
         $("#editor-slide").css('margin-top', '45px');
-    }
+    }*/
+   	try{
+		var height = $(document).height() - $("#editor-stage").offset().top;
+        $("#editor-stage").height(height);
+   	}catch(e){}
     
 }
 

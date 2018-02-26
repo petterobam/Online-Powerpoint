@@ -209,11 +209,11 @@
     padding: 0 20px;
 }
 #content {
-    display: -webkit-box;
+    /*display: -webkit-box;*/
     display: -moz-box;
     display: -ms-box;
     display: box;
-    -webkit-box-flex: 1;
+    /*-webkit-box-flex: 1;*/
     -moz-box-flex: 1;
     -ms-box-flex: 1;
     box-flex: 1;
