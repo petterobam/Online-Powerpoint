@@ -46,6 +46,7 @@
 }
 .file-info{
 	min-height: 120px;
+	white-space: pre-line;
 }
 #online-file-panel p{
 	width: 90%;

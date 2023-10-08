@@ -181,7 +181,7 @@
                         </div>
                     </div>
                     <div id="page-list-wrapper">
-                        <ul id="page-list" class="nav nav-tabs nav-stacked" data-bind="foreach: pageList">
+                        <ul id="page-list" class="nav nav-tabs nav-stacked" data-bind="foreach: { data: pageList, afterRender: renderMathJax }">
                             <li data-bind="css: {active: $index() == $root.currentPage()}, click: $parent.clickPage">
                                 <div>
                                 <img data-bind="attr: {src: 'images/layout/' + key + '.png'}" />
@@ -201,7 +201,7 @@
                     <div id="slide-subtitle" data-key="subtitle">
                         <div class="output" data-bind="click: clickItem"></div>
                     </div>
-                    <div id="slide-content" data-key="content">
+                    <div id="slide-content" data-key="content" >
                         <div class="output" data-bind="click: clickItem"></div>
                     </div>
                     <div id="slide-subtitle2" data-key="subtitle2">
@@ -532,6 +532,37 @@
 
     <script src="lib/js/knockout-2.2.1.js"></script>
     <script src="lib/js/highlight.min.js"></script>
+    <!-- 引入 Showdown -->
+    <script src="lib/js/showdown.min.js"></script>
+    <!-- 引入 MathJax 用于渲染TeX公式 -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            startup: {
+                ready: () => {
+                    MathJax.startup.defaultReady();
+                    console.log('MathJax is loaded');
+                }
+            }
+        };
+    </script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script type="text/javascript" id="MathJax-script" async src="lib/js/tex-mml-chtml.js"></script>
+    <script src="lib/js/joypixels.js"></script>
+
+
+    <!-- 引入 Showdown -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/showdown@latest/dist/showdown.min.js"></script> -->
+    <!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> -->
+    <!-- <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>     -->
+    <!-- 引入 emoji-toolkit -->
+    <!-- <script src="https://unpkg.com/emoji-toolkit"></script> -->
+
 
     <script src="js/jquery.colorpicker.js"></script>
     <script src="js/savefile/FileSaver.js"></script>

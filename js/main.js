@@ -18,6 +18,9 @@ define('storage',[],function () {
             return data;
         }catch(e){
             console.log('[22]' + e);
+        } finally {
+            // 确保 MathJax 重新处理新的内容：
+            MathJax.typeset();
         }
     }
     function saveData(data) {
@@ -33,6 +36,9 @@ define('storage',[],function () {
         }catch (e) {
             console.log('[34]' + e); // QuotaExceededError
             return false;
+        } finally {
+            // 确保 MathJax 重新处理新的内容：
+            MathJax.typeset();
         }
     }
 
@@ -568,6 +574,9 @@ define('page',['data','design'], function (dataManager,designManager) {
         });
         //处理变化的主题样式
         designManager.resetDesign(vm);
+
+        // 确保 MathJax 重新处理新的内容
+        MathJax.typeset();
     }
     return {
         init: function (vm) {
@@ -580,7 +589,7 @@ define('page',['data','design'], function (dataManager,designManager) {
                 var $index = vm.pageList().indexOf(pageData);
                 vm.currentPage($index);
 
-                //暂时：保存前一个页面信息不失真
+                // 暂时：保存前一个页面信息不失真
                 page = vm.pageList.splice(beforeIndex, 1)[0];
                 vm.pageList.splice(beforeIndex, 0, page);
 
@@ -2236,6 +2245,14 @@ define('stage',['data', 'types', 'ctrl'], function (dataManager, typeMap, ctrlMa
                 vm.editItem(output);
             };
 
+            vm.renderMathJax = function(e) {
+                // 确保 MathJax 已经加载完毕
+                if (window.MathJax) {
+                    // 调用 MathJax 的 typeset 方法来渲染或重新渲染数学公式
+                    MathJax.typeset();
+                }
+            };
+
             vm.editItem = function (output) {
                 var dom = output.parent();
                 var key = dom.attr('data-key');
@@ -2377,6 +2394,18 @@ define('editor',['vm', 'title', 'page', 'status', 'stage'],
             pageManager.init(vm);
             stageManager.init(vm);
 
+            // Define the custom binding handler
+            ko.bindingHandlers.mathJax = {
+                update: function (element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
+                    console.log("Updating MathJax content");
+                    // Make sure the contents of the element are accurate
+                    ko.bindingHandlers.html.update(element, valueAccessor);
+                    // Allow the MathJax rendering to take place
+                    MathJax.typeset();
+                }
+            };
+
+            // 绑定模型的地方
             ko.applyBindings(vm);
             vm.previewAll();
 
@@ -3160,20 +3189,108 @@ define('open',['data'],function(dataManager){
         });
         return false;
     }
+
+    // 初始化 Showdown converter，用于将 markdown 转为 html
+    var showdownConverter = new showdown.Converter({
+        literalMidWordUnderscores: true,
+        strikethrough: true,
+        tables: true,
+        tasklists: true,
+        simpleLineBreaks: true,
+        simplifiedAutoLink: true,
+        parseImgDimensions: true,
+        ghCodeBlocks: true,
+        smartIndentationFix: true,
+    });
+
+    // 转化 markdown 为幻灯片 json
+    function renderMarkdownText(markdownContent){
+        // 初始化JSON结构
+        var presentationJSON = {
+            "design": "default",
+            "transition": "cubic-vertical-inner",
+            "title": "",
+            "slides": []
+        };
+
+        // 使用正则表达式提取标题和内容
+        var sections = markdownContent.split(/\n## /);
+        presentationJSON.title = sections[0].split('\n')[0].substr(2).trim();
+
+        sections.slice(1).forEach((section, index) => {
+            var lines = section.split('\n');
+            var contentHtml = lines.slice(1).join('\n').trim()
+            contentHtml = showdownConverter.makeHtml(contentHtml); // 这里可以转为HTML
+            console.log(contentHtml);
+            // 使用emoji-toolkit解析表情
+            contentHtml = joypixels.toImage(contentHtml);
+            console.log(contentHtml);
+            // 调整html结构，方便 MathJax 渲染
+            // 使用 replace 方法和正则表达式来处理字符串
+            contentHtml = contentHtml.replace(/\$\$([\s\S]*?)\$\$/g, function(match, p1) {
+                // p1 是 $$ 符号之间的内容
+                console.log(p1);  // 原始的匹配内容，可能包含 <br> 和换行符
+                var text = $("<div></div>").html(p1).text().trim();  // 使用 jQuery 来解码 HTML 实体，并移除首尾的空白字符
+                console.log(text);  // 处理后的纯文本公式
+                var htmlElement = MathJax.tex2chtml(text);  // 将纯文本公式转换为 MathJax HTML
+                // 将MathJax创建的HTML元素转换为字符串
+                let div = document.createElement('div');
+                div.appendChild(htmlElement);
+                return div.innerHTML;
+            });            
+            console.log(contentHtml);
+
+            var slide = {
+                "sid": "S" + (index + 1),
+                "layout": "normal",
+                "items": {
+                    "title": {
+                        "type": "text",
+                        "value": lines[0].trim()
+                    },
+                    "content": {
+                        "type": "text",
+                        "value": contentHtml
+                    }
+                }
+            };
+            presentationJSON.slides.push(slide);
+        });
+
+        // 在此处，presentationJSON 已经包含了你所需的结构和数据。你可以转化为字符串，并在需要的地方使用它。
+        var jsonString = JSON.stringify(presentationJSON, null, 2); // 使用缩进便于阅读
+
+        return jsonString;
+    }
     
     return {
         init: function(){
             importInput.on("change",function(e){
                 var file = e.target.files[0];
+
+                // 获取文件的 MIME 类型
+                var fileType = file.type;
+                // 获取文件的扩展名
+                var fileExtension = file.name.split('.').pop().toLowerCase();
+
                 var reader = new FileReader();
                 reader.onload = function (e) {
                     importThumb.text(e.target.result);
+                    importThumb.attr('file-type', fileType);
+                    importInput.attr('file-extension', fileExtension);
                 }
                 reader.readAsText(file, 'utf-8');
             });
 
             $("#open-text-btn").bind('click',function(e){
+                var fileType = importThumb.attr('file-type');
+                var fileExtension = importInput.attr('file-extension');
                 var dataStr = importThumb.text();
+                if(fileType === "text/markdown" || fileExtension === "MD" 
+                || fileExtension === "md" || fileExtension === "markdown") {
+                    // 读取markdown文件，并将其转换为标准 json 格式
+                    dataStr = renderMarkdownText(dataStr);
+                }
                 dataManager.startStorage();
                 dataManager.save(dataStr);
                 dataManager.stopStorage();
@@ -3186,11 +3303,13 @@ define('open',['data'],function(dataManager){
     };
 });
 
-requirejs(['editor', 'player','save','open'],function (editor, player,save,open) {
+requirejs(['editor', 'player','save','open'],function (editor, player, save, open) {
     editor.init();
     save.init();
     open.init();
     adjustCss();
+
+
 });
 
 // define("main",[], function(){});

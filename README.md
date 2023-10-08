@@ -1,14 +1,23 @@
 # Online-Powerpoint
 
 > 演示界面：https://petterobam.github.io/Online-Powerpoint/
-> Online Powerpoint，毕业设计项目。
-> 
+
+近期 TODO：
+
+- [X] 支持 Markdown 文件格式导入
+- [ ] 支持导出幻灯片为 Markdown 文件
+- [ ] 由于使用 Knockout 导致 MathJax 无法及时渲染，需要解决
+
+## 简介
+
+> Online Powerpoint，在线幻灯片。
+>  
 > 实现参照：https://github.com/Jinjiang/h5slides
-> 
+>  
 > 升级细节：
 > 界面设计：仿造熟悉的微软 PPT 软件 Powerpoint
 > 实现的功能主要有添加实现大纲略缩菜单功能，增加 HTML5 的非 Js 富文本编辑框，增加自定义主题功能，实现离线文件导入导出等功能。
-> 
+>  
 > PS: 火狐兼容性最好，某些浏览器插件会阻断页面js，如 SuperCopy 等，建议禁用插件。
 
 部分截图：
@@ -141,17 +150,17 @@ PowerPoint 曾使数不胜数的精彩演示文稿锦上添花，也曾让无穷
 
 本论文分五个章节，具体章节安排如下：
 
-- 第 1 章 绪论，主要介绍项目研究的背景和意义，针对 HTML5[1] 和幻灯片的当前背景分析以及论述了该应用开发的实际意义。
+* 第 1 章 绪论，主要介绍项目研究的背景和意义，针对 HTML5[1] 和幻灯片的当前背景分析以及论述了该应用开发的实际意义。
 
-- 第 2 章 开发技术，主要对应用的开发工具和关键技术进行了简单的介绍。
+* 第 2 章 开发技术，主要对应用的开发工具和关键技术进行了简单的介绍。
 
-- 第 3 章 需求分析，主要对应用进行需求分析，介绍了项目开发性能、可行性、数据存储、运行环境以及基于 HTML5 的在线幻灯片系统应用所需实现的功能。
+* 第 3 章 需求分析，主要对应用进行需求分析，介绍了项目开发性能、可行性、数据存储、运行环境以及基于 HTML5 的在线幻灯片系统应用所需实现的功能。
 
-- 第 4 章 系统分析与设计，介绍了系统的设计结构、各个功能模块、设计模块的相关的系统数据的设计，绘制了很多系统的结构图和关系图，为基于 HTML5 的在线幻灯片系统的实现提供了明确的思路和方法。 
+* 第 4 章 系统分析与设计，介绍了系统的设计结构、各个功能模块、设计模块的相关的系统数据的设计，绘制了很多系统的结构图和关系图，为基于 HTML5 的在线幻灯片系统的实现提供了明确的思路和方法。 
 
-- 第 5 章 系统实现，主要介绍了基于 HTML5 的在线幻灯片系统的具体编码实现，详细介绍了系统的重要模块的实现、特色功能、与设计对比的系统界面、界面的兼容性调试和网站发布的实现和操作。
+* 第 5 章 系统实现，主要介绍了基于 HTML5 的在线幻灯片系统的具体编码实现，详细介绍了系统的重要模块的实现、特色功能、与设计对比的系统界面、界面的兼容性调试和网站发布的实现和操作。
 
-- 第 6 章 总结与展望，对本项目进行一个全面的总结，回顾整个项目的完成过程，并展望该项目的后期发展。
+* 第 6 章 总结与展望，对本项目进行一个全面的总结，回顾整个项目的完成过程，并展望该项目的后期发展。
 
 ## 2  开发技术	
 
@@ -195,13 +204,13 @@ Sublime Text 具有漂亮的用户界面和强大的功能，例如代码缩略�
 
 Firefox Developer Edition 是 Firefox 专门为开发者研发的浏览器 (Built for those who build the Web)。它主要特色是内建调试功能，集成类似于 Firefox 火狐工具适配器的专用工具，并在浏览器当中内建 WebIDE 编码工具。Firefox Developer Edition 提供的开发工具主要如下：
 
-- WebIDE
-- 响应式设计模式
-- 页面检测器
-- 网页主控台
-- JavaScript 调试器
-- 网络监测器
-- 样式编辑器
+* WebIDE
+* 响应式设计模式
+* 页面检测器
+* 网页主控台
+* JavaScript 调试器
+* 网络监测器
+* 样式编辑器
 
 3、Axure RP[12]
 
@@ -211,9 +220,9 @@ Axure RP 是美国 Axure Software Solution 公司旗舰产品，是一个专业�
 
 关键技术方面除了 jQuery[3] 自身的兼容性优势外，主要有如下：
 
-- 针对界面布局的 Bootstrap[14]；
-- 针对动态监视的 KnockoutJS[16]；
-- 针对模块封装及动态加载 RequireJS[15]；
+* 针对界面布局的 Bootstrap[14]；
+* 针对动态监视的 KnockoutJS[16]；
+* 针对模块封装及动态加载 RequireJS[15]；
 
 #### 2.2.1  Bootstrap
 
@@ -222,8 +231,8 @@ Bootstrap[6] 作为一款前端开发框架，其中包含了规范的 css 样�
 分析 Bootstrap 插件源码可知，它的每一段插件代码都封装在下面的区域中
 
 ```javascript
-+function ($) {  
-...  
++ function($) {
+    ...
 }(window.jQuery)
 ```
 
@@ -273,20 +282,21 @@ MVVM 模式是一个关注于前端开发的开发模式，在这种设计模式
 
 RequireJS[15] 是一款遵循 AMD 规范协议的 JavaScript[5] 模拟加载器。而 AMD（Asynchronous Modules Definition），异步模块定义，提供定义模块及异步加载该模块依赖的机制。因此，针对基于 HTML5 的在线幻灯片系统，RequireJS 有如下优点：
 
-- 更好的代码组织方式
-- 按需加载
-- 更好的处理依赖同时避免命名冲突
-- 比较适合基于 HTML5 的在线幻灯片系统这样的独立 APP 型项目，能够做到统一构建的那种
+* 更好的代码组织方式
+* 按需加载
+* 更好的处理依赖同时避免命名冲突
+* 比较适合基于 HTML5 的在线幻灯片系统这样的独立 APP 型项目，能够做到统一构建的那种
 
 RequireJS 中主要有两个重要的方法：
 
-- define 方法：1）每个 define 模块都会维护一个闭包；2）define 几个关键判断点：、checkLoadedTimeoutId 、 inCheckLoaded、stillLoading。
-- require 方法：1）检查依赖的模块，根据配置文件，获取 js 文件的实际路径；2）根据 js 文件实际路径，在 dom 中插入 script 节点，并绑定 onload 事件来获取该模块加载完成的通知；3）依赖 script 全部加载完成后，调用回调函数。
+* define 方法：1）每个 define 模块都会维护一个闭包；2）define 几个关键判断点：、checkLoadedTimeoutId 、 inCheckLoaded、stillLoading。
+* require 方法：1）检查依赖的模块，根据配置文件，获取 js 文件的实际路径；2）根据 js 文件实际路径，在 dom 中插入 script 节点，并绑定 onload 事件来获取该模块加载完成的通知；3）依赖 script 全部加载完成后，调用回调函数。
 
 将系统各个功能模块的 js 文件总和到一个文件中，这样减少页面 js 文件的引入，命名该综合文件为 main.js。然后再 index.html 最后添加系统程序入口的定义，就像面向对象语言中 main 函数为主程序一样。用 RequireJS 定义主程序入口和动态加载系统模块集 main.js，代码如下：
 
 ```javascript
-<script data-main="js/main" src="js/require.js"></script> 
+< script data - main = "js/main"
+src = "js/require.js" > < /script> 
 ```
 
 ### 2.3  本章小结
@@ -365,13 +375,13 @@ RequireJS 中主要有两个重要的方法：
 
 1. 设备：
 
-	- 1）PC 机一台：CPU Intel Core i3 2.30GHz；内存 6GB；硬盘 500GB
+  + 1）PC 机一台：CPU Intel Core i3 2.30GHz；内存 6GB；硬盘 500GB
 
 2. 软件：
 
-	- 1）Windows 操作系统 + IIS 管理器：用于在本地发布网站。
-	- 2）用于兼容的各类内核的浏览器：主要代表有 IE 11、Firefox、Chrome、Opera。
-	- 3）用于测试的本土浏览器：360 浏览器、猎豹浏览器、搜狗浏览器、QQ 浏览器和百度浏览器等。
+  + 1）Windows 操作系统 + IIS 管理器：用于在本地发布网站。
+  + 2）用于兼容的各类内核的浏览器：主要代表有 IE 11、Firefox、Chrome、Opera。
+  + 3）用于测试的本土浏览器：360 浏览器、猎豹浏览器、搜狗浏览器、QQ 浏览器和百度浏览器等。
 
 ### 3.6  本章小结
 
@@ -632,13 +642,13 @@ adjust.js 文件：主要用于定义一些微调函数，或急需要添加的�
 
 #### 4.3.3  导出离线 html 文件 ：文本模板数据
 
-导出的离线文件有部分编辑功能和播放功能，而没有文件导入和导出的功能。而且，导出的 html 格式的文件仅仅是一个 html 文件，因此，一些系统的界面上用到的图片要转化成字符流格式（src=”data:image/png;base64, 字符流”）, 特别是一些动态设置的布局图片，在大纲区要用 js 特别处理。
+导出的离线文件有部分编辑功能和播放功能，而没有文件导入和导出的功能。而且，导出的 html 格式的文件仅仅是一个 html 文件，因此，一些系统的界面上用到的图片要转化成字符流格式（src=”data:image/png; base64, 字符流”）, 特别是一些动态设置的布局图片，在大纲区要用 js 特别处理。
 
 ![](doc_imgs/4.18.png)
 
 图 4.18 导出离线 html 界面草图
 
-导出的实质是将字符串 html、css、js 的字符串保存为 html 格式的文件，css 放在 html 的```<style type = 'text/css'></style>```里面，js 的放在```<script type="text/javascript"></script>```里面，然后拼接起来。为了处理和修改方便，作者本人将这些独立的部分分开，用通用的 txt 格式的文本存储这些模板，并将这些文本模板放在根目录下的 template.html 文件夹下面。
+导出的实质是将字符串 html、css、js 的字符串保存为 html 格式的文件，css 放在 html 的 ` `  ` <style type = 'text/css'></style> `  `  ` 里面，js 的放在 `  `  ` <script type="text/javascript"></script> `  ` ` 里面，然后拼接起来。为了处理和修改方便，作者本人将这些独立的部分分开，用通用的 txt 格式的文本存储这些模板，并将这些文本模板放在根目录下的 template.html 文件夹下面。
 
 ![](doc_imgs/4.19.png)
 
@@ -685,10 +695,10 @@ adjust.js 文件：主要用于定义一些微调函数，或急需要添加的�
 
 目前而言，已经重点突破的部分有：
 
-- 深度封装数据操作，添加适宜的数据监视，使得数据层从根源上杜绝隐患；
-- 优化大纲区的显示效果，实现无缝动态刷新，并将这性能嵌入基本页面操作；
-- 集中突破鼠标左键、滚轮、右键事件，兼并实现键盘事件，优化用户操作；
-- 实现 html 格式文件导出，突出系统跨平台、免安装、可脱机的巨大优势。 
+* 深度封装数据操作，添加适宜的数据监视，使得数据层从根源上杜绝隐患；
+* 优化大纲区的显示效果，实现无缝动态刷新，并将这性能嵌入基本页面操作；
+* 集中突破鼠标左键、滚轮、右键事件，兼并实现键盘事件，优化用户操作；
+* 实现 html 格式文件导出，突出系统跨平台、免安装、可脱机的巨大优势。 
 
 ### 5.1  系统界面 
 
@@ -853,22 +863,22 @@ document.execCommand( commandStr [, 交互方式，动态参数])
 
 基于 HTML5 的在线幻灯片系统，利用 Web 的优势，可以实现很多特色功能。
 
-- 代码编辑框
-- 轻量取色器
-- 在线制作主题
-- 动作动态预览区
+* 代码编辑框
+* 轻量取色器
+* 在线制作主题
+* 动作动态预览区
 
 #### 5.7.1  代码编辑框  
 
 代码编辑框可以将代码贴入其中，然后系统会根据代码中的关键字渲染关键字的颜色等等。这里作者本人用到了 highlight.js，由于其是由闭包写成，同时有如下优点：
 
-- 支持 71 种编程语言的语法解析；拥有 44 种样式
-- 自动检测编程语言
-- 同时为多种编程语言代码高亮
-- 支持各种标签
-- 与任何 js 框架兼容
+* 支持 71 种编程语言的语法解析；拥有 44 种样式
+* 自动检测编程语言
+* 同时为多种编程语言代码高亮
+* 支持各种标签
+* 与任何 js 框架兼容
 
-使用时我们将代码块放入``` <pre><code></code></pre>```标签中，highlight.js 会自己解析其中的代码，实现高亮。
+使用时我们将代码块放入 ` `  ` <pre><code></code></pre> `  ` ` 标签中，highlight.js 会自己解析其中的代码，实现高亮。
 
 ![](doc_imgs/5.23.png)
 
@@ -907,8 +917,8 @@ document.execCommand( commandStr [, 交互方式，动态参数])
 循环切换的效果实现，首先是获取与 css 对应切换效果关键字，将切换舞台设置的 data-transition 属性为该切换关键字，在舞台内添加切换实体，系统中是用 10 个 div 模拟，然后按顺序推进 slide-pre、slide-current、slide-next 三个样式在 div 的 class 中的移动。一次移动为一次事件函数，实现一次切换动作，用 js 时钟函数实现循环切换：
 
 ```javascript
-var loopTimer  = setInterval（一次切换，循环间隔 [毫秒]）
-clearInterval(loopTimer)//清除时钟函数
+var loopTimer = setInterval（ 一次切换， 循环间隔[毫秒]）
+clearInterval(loopTimer) //清除时钟函数
 ```
 
 ![](doc_imgs/5.28.png)
@@ -924,7 +934,6 @@ clearInterval(loopTimer)//清除时钟函数
 2. 鼠标滚轮事件 jQuery 的兼容性扩展：在【鼠标事件和键盘事件】中已经阐述，不做赘述。
 
 3. 去除大纲区标题中文字的标签和样式：大纲区的标题是对应幻灯片的标题，而幻灯片的标题是文本编辑框，可编辑的，会产生标签和样式。因此，绑定时要去除样式。
-
     ![](doc_imgs/5.29.png)
 
     
@@ -1004,26 +1013,26 @@ clearInterval(loopTimer)//清除时钟函数
 
 ## 参考文献
 
-- [1] 胡军，刘伯成，刘晓强编著。Web 前端开发案例教程：HTML+CSS+JavaScript[M]. 北京：人民邮电出版社，2015
-- [2] 刘玉红编著。CSS3+DIV 网页样式与布局案例课堂- [M]. 北京：清华大学出版社，2015
-- [3] 袁江编著。jQuery 开发从入门到精通- [M]. 北京：清华大学出版社，2013
-- [4](美) Nicholas C. Zakas 尼古拉斯著。JavaScript 面向对象精要- [M]. 胡世杰译。北京：人民邮电出版社，2014
-- [5] 曾探著。JavaScript 设计模式与开发实践- [M]. 北京：人民邮电出版社，2015
-- [6]Alan Forbes.The Joy of Bootstrap: A Smarter Way to Learn the World's Most Popular Web Framework- [M].6 Aug 2014 
-- [7]Nathan A. Rice. Knockout Js Self Study- [M]. 8 May 2015
-- [8] 百度百科。HTML5- [OL]. http://baike.baidu.com/link?url=BO96dG9NmDs6mCia9P8OiwCBQiVoFxdgcnCxEG0SIj9sbrhXrTISXaMSIa5MxEqOhOGG6dvta5o4G6rEyaQqeK, 2015-11-29 
-- [9] 百度百科。Microsoft Office PowerPoint- [OL]. http://baike.baidu.com/link?url=W9HajkqGmSGjkwIY6_7XWzn9uT9FLPdk9efMS4TU4ZZMiw58Ka370bBkZD4N1gy7V0ADjJob29TmBORxiATl8wGYG9Dlpa0yJMjevY4BOlKmghzHHJBvQbf0LJgjhszr_dyi5P2ZScoSq2vixe53EK, 2016-01-22
+* [1] 胡军，刘伯成，刘晓强编著。Web 前端开发案例教程：HTML+CSS+JavaScript[M]. 北京：人民邮电出版社，2015
+* [2] 刘玉红编著。CSS3+DIV 网页样式与布局案例课堂- [M]. 北京：清华大学出版社，2015
+* [3] 袁江编著。jQuery 开发从入门到精通- [M]. 北京：清华大学出版社，2013
+* [4](美) Nicholas C. Zakas 尼古拉斯著。JavaScript 面向对象精要- [M]. 胡世杰译。北京：人民邮电出版社，2014
+* [5] 曾探著。JavaScript 设计模式与开发实践- [M]. 北京：人民邮电出版社，2015
+* [6]Alan Forbes. The Joy of Bootstrap: A Smarter Way to Learn the World's Most Popular Web Framework- [M].6 Aug 2014 
+* [7]Nathan A. Rice. Knockout Js Self Study- [M]. 8 May 2015
+* [8] 百度百科。HTML5- [OL]. http://baike.baidu.com/link?url=BO96dG9NmDs6mCia9P8OiwCBQiVoFxdgcnCxEG0SIj9sbrhXrTISXaMSIa5MxEqOhOGG6dvta5o4G6rEyaQqeK, 2015-11-29 
+* [9] 百度百科。Microsoft Office PowerPoint- [OL]. http://baike.baidu.com/link?url=W9HajkqGmSGjkwIY6_7XWzn9uT9FLPdk9efMS4TU4ZZMiw58Ka370bBkZD4N1gy7V0ADjJob29TmBORxiATl8wGYG9Dlpa0yJMjevY4BOlKmghzHHJBvQbf0LJgjhszr_dyi5P2ZScoSq2vixe53EK, 2016-01-22
 
-- [10] 百度百科。浏览器内核- [OL]. http://baike.baidu.com/link?url=p_zeam3AC60ium0EywW-6IWXL1spE1JNA5qjLIWexm0HVX2i3X-rUu1lY-eG3m4IaqNBHnNl8pat_kYo6EW4Z_, 2016-04-05
+* [10] 百度百科。浏览器内核- [OL]. http://baike.baidu.com/link?url=p_zeam3AC60ium0EywW-6IWXL1spE1JNA5qjLIWexm0HVX2i3X-rUu1lY-eG3m4IaqNBHnNl8pat_kYo6EW4Z_, 2016-04-05
 
-- [11] 百度百科。Sublime Text- [OL]. http://baike.baidu.com/link?url=UUeaW1kNcpYQ052XrG7wMeesV8M0XzLDIkAEvIp45YVzNz5sX6pQNTGmcdcqCTaPszTfPV4XnRqPnaU6kOMHwa, 2016-05-15
+* [11] 百度百科。Sublime Text- [OL]. http://baike.baidu.com/link?url=UUeaW1kNcpYQ052XrG7wMeesV8M0XzLDIkAEvIp45YVzNz5sX6pQNTGmcdcqCTaPszTfPV4XnRqPnaU6kOMHwa, 2016-05-15
 
-- [12] 百度百科。Axure RP- [OL]. http://baike.baidu.com/link?url=5-LEBnw4hlEDy4Rawqe_T7MFvW86IS5NP0lU6_SsIHyENuDdWwsrui0O3RPlMGnBKhba2K49WUVkKpob4bjw3a, 2015-06-17
+* [12] 百度百科。Axure RP- [OL]. http://baike.baidu.com/link?url=5-LEBnw4hlEDy4Rawqe_T7MFvW86IS5NP0lU6_SsIHyENuDdWwsrui0O3RPlMGnBKhba2K49WUVkKpob4bjw3a, 2015-06-17
 
-- [13]W3School.HTML5 教程- [OL]. http://www.w3school.com.cn/html5/, 2016-3
+* [13]W3School. HTML5 教程- [OL]. http://www.w3school.com.cn/html5/, 2016-3
 
-- [14] 百度百科。Bootstrap- [OL]. http://baike.baidu.com/link?url=1iczg6kA5pT329sFvD-a3YHbxNp4G0ry6gMIjTjoGMoScvCy7w5gBFPruTEP6mtJqCf4pwCnlOiJduJEgQLCcsm9eliUa568-zqidlzbzmu, 2015-09-16
+* [14] 百度百科。Bootstrap- [OL]. http://baike.baidu.com/link?url=1iczg6kA5pT329sFvD-a3YHbxNp4G0ry6gMIjTjoGMoScvCy7w5gBFPruTEP6mtJqCf4pwCnlOiJduJEgQLCcsm9eliUa568-zqidlzbzmu, 2015-09-16
 
-- [15]RequireJS 中文网。RequireJS- [OL]. http://www.requirejs.cn/home.html, 2016-4
+* [15]RequireJS 中文网。RequireJS- [OL]. http://www.requirejs.cn/home.html, 2016-4
 
-- [16]Knockout 官网。Knockout [OL]: Introduction. http://knockoutjs.com/documentation/introduction.html, 2016-4
+* [16]Knockout 官网。Knockout [OL]: Introduction. http://knockoutjs.com/documentation/introduction.html, 2016-4
