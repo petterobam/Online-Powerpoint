@@ -1,15 +1,16 @@
 # Online-Powerpoint
 
-    Online Powerpoint，毕业设计项目。
+> 演示界面：https://petterobam.github.io/Online-Powerpoint/
+> Online Powerpoint，毕业设计项目。
+> 
+> 实现参照：https://github.com/Jinjiang/h5slides
+> 
+> 升级细节：
+> 界面设计：仿造熟悉的微软 PPT 软件 Powerpoint
+> 实现的功能主要有添加实现大纲略缩菜单功能，增加 HTML5 的非 Js 富文本编辑框，增加自定义主题功能，实现离线文件导入导出等功能。
+> 
+> PS: 火狐兼容性最好，某些浏览器插件会阻断页面js，如 SuperCopy 等，建议禁用插件。
 
-    实现参照：https://github.com/Jinjiang/h5slides
-    界面设计：仿造熟悉的微软 PPT 软件 Powerpoint
-    实现的功能主要有添加实现大纲略缩菜单功能，增加 HTML5 的非 Js 富文本编辑框，增加自定义主题功能，实现离线文件导入导出等
-
-	演示界面：https://petterobam.github.io/Online-Powerpoint/
-
-	PS: 火狐兼容性最好
-	
 部分截图：
 
 ![](doc_imgs/4.1.png)
