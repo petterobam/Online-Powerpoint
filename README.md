@@ -5,8 +5,8 @@
 近期 TODO：
 
 - [X] 支持 Markdown 文件格式导入
-- [ ] 支持导出幻灯片为 Markdown 文件
-- [ ] 由于使用 Knockout 导致 MathJax 无法及时渲染，需要解决
+- [X] 支持导出幻灯片为 Markdown 文件
+- [X] 由于使用 Knockout 导致 MathJax 无法及时渲染，需要解决
 
 ## 简介
 

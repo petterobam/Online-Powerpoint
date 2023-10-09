@@ -73,44 +73,6 @@ localData = {
   },
 };
 
-function openNewFile(o) {
-  var slideId = $(o).attr("slide-id");
-  $.ajax({
-    //请求方式为get
-    type: "GET",
-    //xml文件位置
-    url: "database/data.xml",
-    //返回数据格式为xml
-    dataType: "xml",
-    //请求成功完成后要执行的方法
-    success: function (xml) {
-      $(xml)
-        .find("user")
-        .each(function (i) {
-          //i从0开始，累加，如果要显示所有数据，将判断去除即可
-          if ($(this).attr("id") == "petter") {
-            $(this)
-              .find("slide")
-              .each(function (j) {
-                if ($(this).attr("id") == slideId) {
-                  var content = $(this).find("content").text();
-                  var storage = localData;
-                  try {
-                    //这里存储幻灯片的字符串
-                    storage.setItem("h5slides-data", content);
-                    console.log("saved", new Date().valueOf());
-                  } catch (e) {
-                    console.log(e); // QuotaExceededError
-                  }
-                  location.reload();
-                }
-              });
-          }
-        });
-    },
-  });
-}
-
 function removeThisLine(o) {
   $(o).parent().remove();
 }

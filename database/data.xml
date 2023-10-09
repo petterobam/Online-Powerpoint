@@ -17,7 +17,7 @@
 			<time></time>
 		</slide>
 		<slide id = "4">
-			<title>测试Markdown导入（TODO）.ppt</title>
+			<title>测试Markdown导入.ppt</title>
 			<content>
 
 # 测试Markdown导入（TODO）
@@ -36,6 +36,8 @@
 
 ```javascript
 var a = 1;
+var b = 2;
+var c = a + b;
 ```
 
 ## 列表

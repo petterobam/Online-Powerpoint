@@ -12,7 +12,7 @@
       </form>
 
       <ul class="nav pull-right">
-        <li><a href="#" id="clear-slides-data">Q-清除缓存</a></li>
+        <li><a href="#" id="clear-slides-data">Q-还原</a></li>
         <li><a href="#theme-manager" data-toggle="modal">K-主题动作</a></li>
         <li>
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">

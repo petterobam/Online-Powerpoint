@@ -18,9 +18,6 @@ define('storage',[],function () {
             return data;
         }catch(e){
             console.log('[22]' + e);
-        } finally {
-            // 确保 MathJax 重新处理新的内容：
-            MathJax.typeset();
         }
     }
     function saveData(data) {
@@ -36,9 +33,6 @@ define('storage',[],function () {
         }catch (e) {
             console.log('[34]' + e); // QuotaExceededError
             return false;
-        } finally {
-            // 确保 MathJax 重新处理新的内容：
-            MathJax.typeset();
         }
     }
 
@@ -574,9 +568,6 @@ define('page',['data','design'], function (dataManager,designManager) {
         });
         //处理变化的主题样式
         designManager.resetDesign(vm);
-
-        // 确保 MathJax 重新处理新的内容
-        MathJax.typeset();
     }
     return {
         init: function (vm) {
@@ -1012,33 +1003,21 @@ define('types/text',['data', 'vm'], function (dataManager, vm) {
     }
 
     function render(data, dom, placeHolder) {
-        var textArray;
-        var ul;
-
-        // dom[0].cssText = '';
-        // if (data.position) {
-        //     $.each(data.position, function (key, value) {
-        //         dom.css(key, value);
-        //     });
-        // }
-        // if (data.config) {
-        //     $.each(data.config, function (key, value) {
-        //         dom.css(key, value);
-        //     });
-        // }
-
         if (data.value) {
-            // ul = $('<ul class="unstyled"></ul>');
-            // textArray = data.value.split('\n');
-            // textArray.forEach(function (text) {
-            //     var li = $('<li></li>');
-            //     li.text(text);
-            //     ul.append(li);
-            // });
             dom.empty().html(data.value);
-        }
-        else {
+        } else {
             dom.html(data.value);
+        }
+        
+        // 在DOM更新后触发MathJax渲染
+        if (window.MathJax && MathJax.typeset) {
+            try {
+                console.log("MathJax 渲染：", dom[0]);
+                // Pass the DOM element to be rendered by MathJax
+                MathJax.typeset([dom[0]]);
+            } catch (err) {
+                console.log("MathJax 渲染错误: ", err);
+            }
         }
     }
 
@@ -2245,14 +2224,6 @@ define('stage',['data', 'types', 'ctrl'], function (dataManager, typeMap, ctrlMa
                 vm.editItem(output);
             };
 
-            vm.renderMathJax = function(e) {
-                // 确保 MathJax 已经加载完毕
-                if (window.MathJax) {
-                    // 调用 MathJax 的 typeset 方法来渲染或重新渲染数学公式
-                    MathJax.typeset();
-                }
-            };
-
             vm.editItem = function (output) {
                 var dom = output.parent();
                 var key = dom.attr('data-key');
@@ -2393,17 +2364,6 @@ define('editor',['vm', 'title', 'page', 'status', 'stage'],
             statusManager.init(vm);
             pageManager.init(vm);
             stageManager.init(vm);
-
-            // Define the custom binding handler
-            ko.bindingHandlers.mathJax = {
-                update: function (element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
-                    console.log("Updating MathJax content");
-                    // Make sure the contents of the element are accurate
-                    ko.bindingHandlers.html.update(element, valueAccessor);
-                    // Allow the MathJax rendering to take place
-                    MathJax.typeset();
-                }
-            };
 
             // 绑定模型的地方
             ko.applyBindings(vm);
@@ -3061,11 +3021,77 @@ define('save',['data'],function(dataManager){
         saveAs(blob, filename);
     }
 
+    // 初始化 Showdown converter，用于将 html 转为 markdown
+    showdown.extension('mathjax', function() {
+        return [{
+            type: 'output',
+            regex: /<mjx-assistive-mml[^>]*>([\s\S]*?)<\/mjx-assistive-mml>/g,
+            replace: function(match, p1) {
+                return '$$' + p1 + '$$';
+            }
+        }];
+    });    
+    showdown.extension('checkbox', function() {
+        return [{
+            type: 'output',
+            regex: /<input type="checkbox" (checked)?.*?>([^<]+)/g,
+            replace: function(match, p1, p2) {
+                // p1 is either undefined (for unchecked) or 'checked=""' (for checked)
+                // p2 is the text content
+                console.log("html2md checkbox catch ", p1, p2);
+                return (p1 ? "[x] " : "[ ] ") + p2;
+            }
+        }];
+    });
+    showdownConverter = new showdown.Converter({
+        literalMidWordUnderscores: true,
+        strikethrough: true,
+        tables: true,
+        simpleLineBreaks: true,
+        simplifiedAutoLink: true,
+        parseImgDimensions: true,
+        ghCodeBlocks: true,
+        smartIndentationFix: true,
+        extensions: ['mathjax', 'checkbox']
+    });
+    function downloadMarkdown(filename)
+    {
+        var data = dataManager.getData()
+        var contentHtml = ''
+        if (data.title) {
+            contentHtml += '<h1>' + data.title + '</h1>\n\n'
+            data.slides.forEach(function (slide) {
+                for (const key in slide.items) {
+                    // {"title":{"type":"text","value":"介绍"},"content":{"type":"text","value":"<p><font color=\\"#0000ff\\">你好呀！</font></p>"}}
+                    if (key == "title") {
+                        contentHtml += '<h2>' + slide.items[key].value + '</h2>\n\n'
+                    } else {
+                        contentHtml += slide.items[key].value + '\n\n'
+                    }
+                }
+            })
+        }
+        contentHtml = convertTasksToMarkdown(contentHtml)
+        content = showdownConverter.makeMarkdown(contentHtml);
+        //FileSaver.js
+        var blob = new Blob([content], {type: "text/plain;charset=utf-8"});
+        saveAs(blob, filename);
+    }
+
+    function convertTasksToMarkdown(htmlString) {
+        return htmlString.replace(/<input type="checkbox"[^>]*>(?:<\/input>)?\s*([^<]*)/g, function(match, p1) {
+            // p1 是任务的文本内容
+            // match 是整个匹配到的字符串，例如整个 <input> 元素
+            var isChecked = /checked=""/.test(match);
+            return "[" + (isChecked ? "x" : " ") + "] " + p1.trim();
+        });
+    }
+    
+
     var storage = localData;
     var finished = 0;
     var filecount = 13;
     var fileName = '新幻灯片.html';
-
     function readTextFile(key,myurl){
         if(storage.getItem(key) == null){
             $.ajax({
@@ -3086,37 +3112,9 @@ define('save',['data'],function(dataManager){
             }
         }
     }
-
-    function saveToHtml(){
-
-        var bootstrap_css = storage.getItem("bootstrap_css") || '';
-        var default_min_css = storage.getItem("default_min_css") || '';
-        var main_css = storage.getItem("main_css") || '';
-        var adjust_css = storage.getItem("adjust_css") || '';
-        var all_css = "<style type = 'text/css'>" + bootstrap_css + default_min_css + main_css + adjust_css + "</style>";
-
-        var jquery_min_js = storage.getItem("jquery_min_js") || '';
-        var bootstrap_min_js = storage.getItem("bootstrap_min_js") || '';
-        var knockout_js = storage.getItem("knockout_js") || '';
-        var highlight_min_js = storage.getItem("highlight_min_js") || '';
-        var FileSaver_min_js = storage.getItem("FileSaver_min_js") || '';
-        var adjust_js = storage.getItem("adjust_js") || '';
-        var require_js = storage.getItem("require_js") || '';
-        var main_js = storage.getItem("main_js") || '';
-        var all_js = "<script type=\"text/javascript\">var myHtmlSlidesData = " + (storage.getItem('h5slides-data')||"") + ";" + jquery_min_js + bootstrap_min_js + knockout_js + highlight_min_js + FileSaver_min_js + adjust_js + require_js + main_js +"setmyImagesByKey();setmyDesignByKey();</script>";
-
-        var body_html =  storage.getItem("body_html") || '';
-
-        var content = "<!doctype html><html><head>" + all_css + "</head><body>" + body_html + all_js + "</body>" + "</html>";
-
-        //FileSaver.js
-        var blob = new Blob(["\ufeff" + content], {type: "text/plain;charset=utf-8"});
-        saveAs(blob, fileName);
-        finished = 0;
-    }
-
     function downloadHtml(filename){
         finished = 0;
+        // Attention: 如果需要新解析文档，需要增加filecount的值
         filecount = 13;
         fileName = filename || '新幻灯片.html';
         // 锁屏
@@ -3134,11 +3132,47 @@ define('save',['data'],function(dataManager){
         readTextFile('highlight_min_js','template.html/highlight.min.js.txt');
         readTextFile('FileSaver_min_js','template.html/FileSaver.min.js.txt');
         readTextFile('adjust_js','template.html/adjust.js.txt');
+        readTextFile('tex_mml_chtml_js','template.html/tex-mml-chtml.js.txt');
         readTextFile('require_js','template.html/require.js.txt');
         readTextFile('main_js','template.html/main.js.txt');
+        // Attention: 如果需要新解析文档，需要增加filecount的值 向上看
         
         // while(finished < filecount){  }
         //解屏
+    }
+
+    function saveToHtml(){
+
+        var bootstrap_css = storage.getItem("bootstrap_css") || '';
+        var default_min_css = storage.getItem("default_min_css") || '';
+        var main_css = storage.getItem("main_css") || '';
+        var adjust_css = storage.getItem("adjust_css") || '';
+        var all_css = "<style type = 'text/css'>" + bootstrap_css + default_min_css + main_css + adjust_css + "</style>";
+
+        var jquery_min_js = storage.getItem("jquery_min_js") || '';
+        var bootstrap_min_js = storage.getItem("bootstrap_min_js") || '';
+        var knockout_js = storage.getItem("knockout_js") || '';
+        var highlight_min_js = storage.getItem("highlight_min_js") || '';
+        var FileSaver_min_js = storage.getItem("FileSaver_min_js") || '';
+        var adjust_js = storage.getItem("adjust_js") || '';
+        // var tex_mml_chtml_js = storage.getItem("tex_mml_chtml_js") || '';
+        var require_js = storage.getItem("require_js") || '';
+        var main_js = storage.getItem("main_js") || '';
+        var all_js = "<script type=\"text/javascript\">\n" 
+            + "var myHtmlSlidesData = " + (storage.getItem('h5slides-data')||"") + ";" 
+            + jquery_min_js + bootstrap_min_js + knockout_js
+            + highlight_min_js + FileSaver_min_js  
+            + adjust_js + require_js + main_js 
+            + "setmyImagesByKey();setmyDesignByKey();\n</script>";
+
+        var body_html =  storage.getItem("body_html") || '';
+
+        var content = "<!doctype html><html><head>" + all_css + "</head><body>" + body_html + all_js + "</body>" + "</html>";
+
+        //FileSaver.js
+        var blob = new Blob(["\ufeff" + content], {type: "text/plain;charset=utf-8"});
+        saveAs(blob, fileName);
+        finished = 0;
     }
 
 
@@ -3153,6 +3187,11 @@ define('save',['data'],function(dataManager){
                 dataManager.save();
                 var filename = (dataManager.getTitle() || '新幻灯片') + '.html';
                 downloadHtml(filename);
+            });
+            $("#save-markdown-btn").bind('click',function(e){
+                dataManager.save();
+                var filename = (dataManager.getTitle() || '新幻灯片') + '.md';
+                downloadMarkdown(filename);
             });
         }
     };
@@ -3180,7 +3219,7 @@ define('open',['data'],function(dataManager){
                     if($(this).attr("id") == "petter"){
                         var listStr = ""
                         $(this).find("slide").each(function (j){
-                            listStr += "<div class='clear'><p><a onclick='openNewFile(this)' name='open-online-go'  slide-id='" + $(this).attr("id") + "' title='打开' >" + (j+1) +"、"+ $(this).find("title").text() + "<span>[发布时间：" + ($(this).find("time").text() || "未知") + "]</span></a></p><a onclick='removeThisLine(this)' name='open-online-delete' id='DeleteMyFile-" + $(this).attr("id") + "' title='删除' class='close delete-btn'>×</a></div>";
+                            listStr += "<div class='clear'><p><a onclick='openOnlineNewFile(this)' name='open-online-go'  slide-id='" + $(this).attr("id") + "' title='打开' >" + (j+1) +"、"+ $(this).find("title").text() + "<span>[发布时间：" + ($(this).find("time").text() || "未知") + "]</span></a></p><a onclick='removeThisLine(this)' name='open-online-delete' id='DeleteMyFile-" + $(this).attr("id") + "' title='删除' class='close delete-btn'>×</a></div>";
                         });
                         onlinePanel.html(listStr);
                     }
@@ -3191,7 +3230,7 @@ define('open',['data'],function(dataManager){
     }
 
     // 初始化 Showdown converter，用于将 markdown 转为 html
-    var showdownConverter = new showdown.Converter({
+    showdownConverter = new showdown.Converter({
         literalMidWordUnderscores: true,
         strikethrough: true,
         tables: true,
@@ -3200,7 +3239,7 @@ define('open',['data'],function(dataManager){
         simplifiedAutoLink: true,
         parseImgDimensions: true,
         ghCodeBlocks: true,
-        smartIndentationFix: true,
+        smartIndentationFix: true
     });
 
     // 转化 markdown 为幻灯片 json
@@ -3261,6 +3300,58 @@ define('open',['data'],function(dataManager){
         var jsonString = JSON.stringify(presentationJSON, null, 2); // 使用缩进便于阅读
 
         return jsonString;
+    }
+
+    function isJSON(str) {
+        try {
+            JSON.parse(str);
+        } catch (e) {
+            return false;
+        }
+        return true;
+    }
+
+    // 打开在线文件
+    window.openOnlineNewFile = function openOnlineNewFile(o) {
+        var slideId = $(o).attr("slide-id");
+        $.ajax({
+          //请求方式为get
+          type: "GET",
+          //xml文件位置
+          url: "database/data.xml",
+          //返回数据格式为xml
+          dataType: "xml",
+          //请求成功完成后要执行的方法
+          success: function (xml) {
+            $(xml)
+              .find("user")
+              .each(function (i) {
+                //i从0开始，累加，如果要显示所有数据，将判断去除即可
+                if ($(this).attr("id") == "petter") {
+                  $(this)
+                    .find("slide")
+                    .each(function (j) {
+                      if ($(this).attr("id") == slideId) {
+                        var content = $(this).find("content").text();
+                        var storage = localData;
+                        try {
+                          //这里存储幻灯片的字符串
+                          if (!isJSON(content)) {
+                            // 不是规范 json，可能是 markdown
+                            content = renderMarkdownText(content);
+                          }
+                          storage.setItem("h5slides-data", content);
+                          console.log("saved", new Date().valueOf());
+                        } catch (e) {
+                          console.log(e); // QuotaExceededError
+                        }
+                        location.reload();
+                      }
+                    });
+                }
+              });
+          },
+        });
     }
     
     return {

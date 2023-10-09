@@ -36,7 +36,8 @@
                         </a>
                         <ul id="import" class="dropdown-menu">
                             <li><a href="#online-dialog" data-toggle="modal" id="open-online-btn">打开在线幻灯片</a></li>
-                            <li><a href="#import-dialog" data-toggle="modal">导入（text格式）</a></li>
+                            <li><a href="#import-dialog" data-toggle="modal">导入(规范json文档)</a></li>
+                            <li><a href="#import-dialog" data-toggle="modal">导入(常规Markdown)</a></li>
                         </ul>
                     </li>
                     <li>
@@ -47,6 +48,7 @@
                             <li><a href="#" id="">存入数据库</a></li>
                             <li><a href="#" id="save-text-btn">导出为text</a></li>
                             <li><a href="#" id="save-html-btn">导出为html</a></li>
+                            <li><a href="#" id="save-markdown-btn">导出为markdown</a></li>
                         </ul>
                     </li>
                     <li><a href="#" id="remove-btn"><i class="icon-remove"></i>移除</a></li>
@@ -181,7 +183,7 @@
                         </div>
                     </div>
                     <div id="page-list-wrapper">
-                        <ul id="page-list" class="nav nav-tabs nav-stacked" data-bind="foreach: { data: pageList, afterRender: renderMathJax }">
+                        <ul id="page-list" class="nav nav-tabs nav-stacked" data-bind="foreach: { data: pageList }">
                             <li data-bind="css: {active: $index() == $root.currentPage()}, click: $parent.clickPage">
                                 <div>
                                 <img data-bind="attr: {src: 'images/layout/' + key + '.png'}" />
@@ -526,11 +528,13 @@
         </div>
     </script>
     
-
+    <!-- jQuery -->
     <script src="lib/js/jquery.js"></script>
+    <!-- 布局 -->
     <script src="lib/js/bootstrap.js"></script>
-
+    <!-- MVVM 动态绑定 -->
     <script src="lib/js/knockout-2.2.1.js"></script>
+    <!-- 高亮语法 -->
     <script src="lib/js/highlight.min.js"></script>
     <!-- 引入 Showdown -->
     <script src="lib/js/showdown.min.js"></script>
@@ -551,23 +555,16 @@
             }
         };
     </script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script type="text/javascript" id="MathJax-script" async src="lib/js/tex-mml-chtml.js"></script>
     <script src="lib/js/joypixels.js"></script>
 
-
-    <!-- 引入 Showdown -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/showdown@latest/dist/showdown.min.js"></script> -->
-    <!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> -->
-    <!-- <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>     -->
-    <!-- 引入 emoji-toolkit -->
-    <!-- <script src="https://unpkg.com/emoji-toolkit"></script> -->
-
-
+    <!-- 颜色选择器 -->
     <script src="js/jquery.colorpicker.js"></script>
+    <!-- 文件保存 -->
     <script src="js/savefile/FileSaver.js"></script>
+    <!-- cookie处理 -->
     <script src="js/jquery.cookie.js"></script>
-    
+    <!-- 额外样式动态调整 -->
     <script src="js/adjust.js"></script>
 
     <script data-main="js/main" src="js/require.js"></script>
