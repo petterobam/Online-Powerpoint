@@ -3082,8 +3082,8 @@ define('save',['data'],function(dataManager){
         return htmlString.replace(/<input type="checkbox"[^>]*>(?:<\/input>)?\s*([^<]*)/g, function(match, p1) {
             // p1 是任务的文本内容
             // match 是整个匹配到的字符串，例如整个 <input> 元素
-            var isChecked = /checked=""/.test(match);
-            return "[" + (isChecked ? "x" : " ") + "] " + p1.trim();
+            var isChecked = /checked/.test(match);
+            return "[" + (isChecked ? "X" : " ") + "] " + p1.trim();
         });
     }
     
