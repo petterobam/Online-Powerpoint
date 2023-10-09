@@ -1,12 +1,13 @@
-# Online-Powerpoint
+# 在线幻灯片
 
-> 演示界面：https://petterobam.github.io/Online-Powerpoint/
+> 演示界面：https://ppt.petterobam.cn
 
 近期 TODO：
 
-- [X] 支持 Markdown 文件格式导入
-- [X] 支持导出幻灯片为 Markdown 文件
-- [X] 由于使用 Knockout 导致 MathJax 无法及时渲染，需要解决
+- [X] :art: 支持 Markdown 文件格式导入
+- [X] :art: 支持导出幻灯片为 Markdown 文件
+- [X] :bug: 由于使用 Knockout 导致 MathJax 无法及时渲染，需要解决
+- [ ] :art: 需要做一个单文件模板用于内部应用直接拥有幻灯片功能（类似于插件）
 
 ## 简介
 
