@@ -1017,7 +1017,7 @@ clearInterval(loopTimer) //清除时钟函数
 * [1] 胡军，刘伯成，刘晓强编著。Web 前端开发案例教程：HTML+CSS+JavaScript[M]. 北京：人民邮电出版社，2015
 * [2] 刘玉红编著。CSS3+DIV 网页样式与布局案例课堂- [M]. 北京：清华大学出版社，2015
 * [3] 袁江编著。jQuery 开发从入门到精通- [M]. 北京：清华大学出版社，2013
-* [4](美) Nicholas C. Zakas 尼古拉斯著。JavaScript 面向对象精要- [M]. 胡世杰译。北京：人民邮电出版社，2014
+* [4] (美) Nicholas C. Zakas 尼古拉斯著。JavaScript 面向对象精要- [M]. 胡世杰译。北京：人民邮电出版社，2014
 * [5] 曾探著。JavaScript 设计模式与开发实践- [M]. 北京：人民邮电出版社，2015
 * [6]Alan Forbes. The Joy of Bootstrap: A Smarter Way to Learn the World's Most Popular Web Framework- [M].6 Aug 2014 
 * [7]Nathan A. Rice. Knockout Js Self Study- [M]. 8 May 2015
